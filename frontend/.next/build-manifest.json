@@ -20,10 +20,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
-    "/Interface/checkout": [
+    "/Profile/transactionDetail": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/Interface/checkout.js"
+      "static/chunks/pages/Profile/transactionDetail.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
