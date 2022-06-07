@@ -1,21 +1,26 @@
 import React from "react";
 import Head from "next/head";
-import axios from "axios";
+import Axios from "axios";
 import { useState } from "react";
 
 const Crud = () => {
   const url = "https://hariyanti-server.herokuapp.com/api/landing-page";
   const [name, setname] = useState("");
+
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("name :", name);
-
     const data = new FormData();
     data.append("name", name);
-    axios
-      .post("https://hariyanti-server.herokuapp.com/api/landing-page", data)
-      .then((res) => {
-        alert("succes", res);
+    const config = {
+      accept: {},
+    };
+
+    Axios.post("http://localhost:4000/post", data, {
+      headers: { "content-type": "multipart/form-data" },
+    })
+      .then((response) => {
+        alert("succes", response);
       })
       .catch((err) => {
         alert(err);
@@ -33,7 +38,7 @@ const Crud = () => {
         ></link>
       </Head>
       <main>
-        <form method="POST" action="crud">
+        <form>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
@@ -41,7 +46,7 @@ const Crud = () => {
             <input
               type="text"
               className="form-control"
-              name="name"
+              value={name}
               onChange={(e) => setname(e.target.value)}
               aria-describedby="emailHelp"
             />
