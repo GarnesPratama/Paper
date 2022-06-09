@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 mongoose.connect("mongodb://localhost:27017/test");
 const app = express();
 
 const productRoutes = require("./src/product/routes");
-
+app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

@@ -8,6 +8,6 @@ const productController = require("./controller");
 //   next();
 // });
 
-router.post("/post", productController.createProduct);
+router.use("/post", productController.createProduct);
 
 module.exports = router;
