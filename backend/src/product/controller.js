@@ -3,12 +3,13 @@ module.exports = {
   createProduct: async (req, res) => {
     const { name } = req.body;
     const data = new Product({
-      name,
+      name: name,
     });
-    await data.save();
-    res.json({
-      message: "Get All Data Success",
+    data.save();
+    const result = {
+      message: "succes",
       data: data,
-    });
+    };
+    res.status(201).json(result);
   },
 };

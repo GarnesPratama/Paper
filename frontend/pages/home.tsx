@@ -2,8 +2,17 @@ import React from "react";
 import Navbar from "../Organism/Interface/navbar/index";
 import Footer from "../Organism/Interface/footer";
 import Card from "../Molecule/Interface/card";
+import { useEffect } from "react";
+import Axios from "axios";
+const url = "http://localhost:4000/post";
 
 export default function index() {
+  useEffect(() => {
+    Axios.get(url).then((result) => {
+      console.log("data api", result.data);
+    });
+  }, []);
+
   return (
     <div>
       <header className="header bg-navy">

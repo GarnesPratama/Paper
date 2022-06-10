@@ -1,25 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Axios from "axios";
+
 import { useState } from "react";
 
 const Crud = () => {
+  const qs = require("qs");
   const url = "http://localhost:4000/post";
   const [name, setname] = useState("");
 
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
     },
   };
-  const data = JSON.stringify({
-    name,
+  const data = qs.stringify({
+    name: name,
   });
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
       const resp = await Axios.post(url, data, config);
-      console.log(resp.data);
+      console.log(resp);
     } catch (err) {
       alert(err);
     }
@@ -27,7 +29,7 @@ const Crud = () => {
   return (
     <div>
       <main>
-        <form onSubmit={onSubmit}>
+        <form>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
@@ -42,7 +44,9 @@ const Crud = () => {
               We'll never share your email with anyone else.
             </div>
           </div>
-          <button className="btn btn-primary">Submit</button>
+          <button className="btn btn-primary" onClick={onSubmit}>
+            Submit
+          </button>
         </form>
       </main>
     </div>
