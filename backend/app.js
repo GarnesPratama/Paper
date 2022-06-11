@@ -13,6 +13,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const productRouter = require("./app/product/router");
 const paymentRouter = require("./app/payment/router");
+const authRouter = require("./app/auth/router");
 const apiRouter = require("./app/api/v1/router");
 
 var app = express();
@@ -44,6 +45,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use("/users", usersRouter);
 app.use(`${apiVersion1}/product`, productRouter);
 app.use(`${apiVersion1}/payment`, paymentRouter);
+app.use(`${apiVersion1}/auth`, authRouter);
 app.use(`${apiVersion1}`, apiRouter);
 
 // catch 404 and forward to error handler
