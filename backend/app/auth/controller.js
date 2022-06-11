@@ -25,6 +25,24 @@ module.exports = {
   signIn: async (req, res, next) => {
     try {
       const { email, password } = req.body;
+      if (!email || !password) {
+        console.log("please provide email and password!");
+      }
+      // cek email
+      const data = await User.findOne({ email: email });
+      if (!data) {
+        console.log("Invalid credential");
+      }
+      // cek pw
+      const isPasswordCorrect = await data.comparePassword(password);
+      if (!isPasswordCorrect) {
+        // res.json({
+        //   message: "Invalid Credential",
+        // });
+        console.log("Invalid credential");
+      }
+
+      res.status(200).json({ data: data });
     } catch (error) {
       res.redirect("/");
     }

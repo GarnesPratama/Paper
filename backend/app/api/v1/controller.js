@@ -40,7 +40,7 @@ module.exports = {
     const { id } = req.params;
     const result = await Payment.find({ _id: id }).select("category");
     res.status(200).json({
-      message: "Get All Payment Data Success",
+      message: "Get All Checkout Data Success",
       data: result,
     });
   },
