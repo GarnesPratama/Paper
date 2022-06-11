@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const Crud = () => {
   const qs = require("qs");
-  const url = "http://localhost:4000/post";
+  const url = "http://localhost:4000/product/post";
   const [name, setname] = useState("");
 
   const config = {

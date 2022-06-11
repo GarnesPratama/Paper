@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/crud": "pages/crud.js",
-  "/home": "pages/home.js"
+  "/index": "pages/index/index.js",
+  "/checkout/[id]": "pages/checkout/[id].js"
 }

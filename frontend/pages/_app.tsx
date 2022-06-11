@@ -6,6 +6,7 @@ import "../styles/transactions.css";
 import "../styles/edit-profile.css";
 import "../styles/overview.css";
 import "../styles/transactions-detail.css";
+import "../styles/checkout.css";
 function MyApp({ Component, pageProps }) {
   return (
     <>

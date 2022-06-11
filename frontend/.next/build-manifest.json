@@ -25,15 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/crud": [
+    "/checkout/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/crud.js"
+      "static/chunks/pages/checkout/[id].js"
     ],
-    "/home": [
+    "/index": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/home.js"
+      "static/chunks/pages/index/index.js"
     ]
   },
   "ampFirstPages": []
