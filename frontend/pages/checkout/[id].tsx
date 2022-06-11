@@ -1,12 +1,28 @@
 import React, { useEffect } from "react";
 import MenuCheckout from "./menuCheckout";
 import { useRouter } from "next/router";
+import { getMenuCheckout } from "../../services/pricing";
+import { useState } from "react";
+import { menuCheckout } from "../../services/dataTypes";
+import { useCallback } from "react";
 
 export default function checkout() {
   const { query, isReady } = useRouter();
+  const [checkout, setcheckout] = useState({
+    category: "",
+  });
+  const Checkout = useCallback(
+    async (id) => {
+      const data = await getMenuCheckout(id);
+      console.log("data :", data);
+      setcheckout(data);
+    },
+    [getMenuCheckout]
+  );
   useEffect(() => {
     if (isReady) {
       console.log("router tersedia", query.id);
+      Checkout(query.id);
     } else {
       console.log("router tidak tersedia");
     }
@@ -52,21 +68,17 @@ export default function checkout() {
           <div className="title-text pt-md-50 pt-0">
             <h2 className="text-4xl fw-bold color-palette-1 mb-10">Checkout</h2>
           </div>
-
+          <MenuCheckout title="Nama Paket" data={checkout} />
           <hr />
           <div className="purchase pt-md-50 pt-30">
             <h2 className="fw-bold text-xl color-palette-1 mb-20">
               Purchase Details
             </h2>
-            <MenuCheckout title="Paket" detail="Pro" />
           </div>
           <div className="payment pt-md-50 pb-md-50 pt-10 pb-10">
             <h2 className="fw-bold text-xl color-palette-1 mb-20">
               Payment Informations
             </h2>
-            <MenuCheckout title="Nama Akun Bank" detail="Pak Budi" />
-            <MenuCheckout title="Nama Bank" detail="BNI" />
-            <MenuCheckout title="Nomor Rekening" detail="111111111" />
           </div>
           <label className="checkbox-label text-lg color-palette-1">
             I have transferred the money
@@ -74,15 +86,13 @@ export default function checkout() {
             <span className="checkmark"></span>
           </label>
           <div className="d-md-block d-flex flex-column w-100 pt-50">
-            <center>
-              <a
-                className="btn btn-confirm-payment rounded-pill fw-medium text-white border-0 text-lg "
-                href="./complete-checkout.html"
-                role="button"
-              >
-                Konfirmasi Pembayaran
-              </a>
-            </center>
+            <a
+              className="btn btn-confirm-payment rounded-pill fw-medium text-white border-0 text-lg "
+              href="./complete-checkout.html"
+              role="button"
+            >
+              Konfirmasi Pembayaran
+            </a>
           </div>
         </div>
       </section>

@@ -5,3 +5,11 @@ export interface menuPricing {
   list: string;
   id: string;
 }
+
+
+export interface menuCheckout {
+  title: string;
+  data: {
+    category: string;
+  };
+}

@@ -1,14 +1,16 @@
 import React from "react";
 interface menuCheckout {
   title: string;
-  detail: string;
+  data: {
+    category: string;
+  };
 }
 export default function menuCheckout(props: menuCheckout) {
-  const { title, detail } = props;
+  const { title, data } = props;
   return (
     <div>
       <p className="text-lg color-palette-1 mb-20">
-        {title} <span className="purchase-details">{detail}</span>
+        {title} <span className="purchase-details">{data.category}</span>
       </p>
     </div>
   );

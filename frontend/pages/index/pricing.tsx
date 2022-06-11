@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import Link from "next/link";
 const url = "http://localhost:4000/payment/";
-interface menuPricing {
+interface menuCheckout {
   category: string;
   price: number;
   list: string;
   id: string;
 }
 
-export default function pricing(props: menuPricing) {
+export default function pricing(props: menuCheckout) {
   const { category, price, list, id } = props;
   return (
     <Link href={`/checkout/${id}`}>

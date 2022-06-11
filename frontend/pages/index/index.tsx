@@ -8,14 +8,14 @@ import Axios from "axios";
 const url = "http://localhost:4000/payment/";
 import { menuPricing } from "../../services/dataTypes";
 import { getMenuPrice } from "../../services/pricing";
+import { useCallback } from "react";
 
 export default function index() {
   const [price, setprice] = useState([]);
-  const paymentData = async () => {
+  const paymentData = useCallback(async () => {
     const data = await getMenuPrice();
     setprice(data);
-  };
-
+  }, [getMenuPrice]);
   useEffect(() => {
     paymentData();
   }, []);
