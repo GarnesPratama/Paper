@@ -1,4 +1,5 @@
 const User = require("../user/model");
+const { createJWT, createToken } = require("../utils");
 
 module.exports = {
   signUp: async (req, res, next) => {
@@ -42,7 +43,10 @@ module.exports = {
         console.log("Invalid credential");
       }
 
-      res.status(200).json({ data: data });
+      // Set token
+      const token = createJWT({ payload: createToken(data) });
+
+      res.status(200).json({ data: { token } });
     } catch (error) {
       res.redirect("/");
     }

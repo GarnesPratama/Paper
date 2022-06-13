@@ -11,10 +11,12 @@ mongoose.connect(
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+
 const productRouter = require("./app/product/router");
 const paymentRouter = require("./app/payment/router");
 const authRouter = require("./app/auth/router");
 const apiRouter = require("./app/api/v1/router");
+const handleErrorMiddleware = require("./app/middlewares/handler-error");
 
 var app = express();
 const apiVersion1 = "/api/v1";
@@ -36,6 +38,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(logger("dev"));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -52,7 +55,7 @@ app.use(`${apiVersion1}`, apiRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
-
+// app.use(handleErrorMiddleware);
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
