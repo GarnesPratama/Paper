@@ -7,6 +7,7 @@ interface menuCheckout {
 }
 export default function menuCheckout(props: menuCheckout) {
   const { title, data } = props;
+  console.log(title, data.category);
   return (
     <div>
       <p className="text-lg color-palette-1 mb-20">

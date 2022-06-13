@@ -38,9 +38,8 @@ module.exports = {
   },
   checkout: async (req, res) => {
     const { id } = req.params;
-    const result = await Payment.find({ _id: id }).select("category");
+    const result = await Payment.findOne({ _id: id }).select("category price");
     res.status(200).json({
-      message: "Get All Checkout Data Success",
       data: result,
     });
   },

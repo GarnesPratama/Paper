@@ -12,5 +12,5 @@ export const getMenuCheckout = async (id) => {
     `http://localhost:4000/api/v1/checkout/${id}`
   );
   const axiosResponse = response.data;
-  return axiosResponse;
+  return axiosResponse.data;
 };

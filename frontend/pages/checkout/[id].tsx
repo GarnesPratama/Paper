@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import MenuCheckout from "./menuCheckout";
+import MenuPrice from "./menuPrice";
 import { useRouter } from "next/router";
 import { getMenuCheckout } from "../../services/pricing";
 import { useState } from "react";
@@ -10,6 +11,7 @@ export default function checkout() {
   const { query, isReady } = useRouter();
   const [checkout, setcheckout] = useState({
     category: "",
+    price: "",
   });
   const Checkout = useCallback(
     async (id) => {
@@ -79,7 +81,9 @@ export default function checkout() {
             <h2 className="fw-bold text-xl color-palette-1 mb-20">
               Payment Informations
             </h2>
+            <MenuPrice title="Harga" data={checkout} />
           </div>
+
           <label className="checkbox-label text-lg color-palette-1">
             I have transferred the money
             <input type="checkbox" />
