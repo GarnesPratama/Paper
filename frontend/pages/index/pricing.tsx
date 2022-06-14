@@ -1,17 +1,18 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Axios from "axios";
+import { getMenuPrice } from "../../services/pricing";
+import List from "./list";
 import Link from "next/link";
-const url = "http://localhost:4000/payment/";
-interface menuCheckout {
+interface menuPricing {
   category: string;
   price: number;
-  list: string;
   id: string;
+  list: [];
 }
 
-export default function pricing(props: menuCheckout) {
-  const { category, price, list, id } = props;
+export default function pricing(props: menuPricing) {
+  const { category, price, id, list } = props;
   return (
     <Link href={`/checkout/${id}`}>
       <div>
@@ -24,16 +25,9 @@ export default function pricing(props: menuCheckout) {
             <span className="period">/Bulan</span>
           </h6>
           <hr />
-          <ul className="fa-ul">
-            <div>
-              <li>
-                <span className="fa-li">
-                  <i className="fas fa-check"></i>
-                </span>
-                {list}
-              </li>
-            </div>
-          </ul>
+          {list.map((item) => {
+            return <List list={item} />;
+          })}
           <div className="d-grid">
             <a href="#" className="btn  text-uppercase">
               Pilih Paket

@@ -4,8 +4,6 @@ import Footer from "../../Organism/Interface/footer";
 import Pricing from "./pricing";
 import Stories from "./stories";
 import { useEffect, useState } from "react";
-import Axios from "axios";
-const url = "http://localhost:4000/payment/";
 import { menuPricing } from "../../services/dataTypes";
 import { getMenuPrice } from "../../services/pricing";
 import { useCallback } from "react";

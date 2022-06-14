@@ -1,5 +1,6 @@
 import React from "react";
 import Menu from "./menu";
+import Auth from "./auth";
 
 export default function index() {
   return (
@@ -28,9 +29,7 @@ export default function index() {
               <Menu title="Home" href="/" />
             </div>
             <div className="d-grid">
-              <a className="btn-navy" href="signin.html">
-                Sign In
-              </a>
+              <Auth />
             </div>
           </div>
         </div>
