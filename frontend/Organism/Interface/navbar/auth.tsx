@@ -1,7 +1,8 @@
 import React from "react";
+import Link from "next/link";
 
 interface auth {
-  isLogin: boolean;
+  isLogin?: boolean;
 }
 
 export default function auth(props: auth) {
@@ -11,9 +12,11 @@ export default function auth(props: auth) {
   }
   return (
     <div>
-      <a className="btn-navy" href="signin.html">
-        Sign In
-      </a>
+      <Link href="/signIn">
+        <a className="btn-navy" href="signin.html">
+          Sign In
+        </a>
+      </Link>
     </div>
   );
 }

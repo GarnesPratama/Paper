@@ -29,7 +29,7 @@ export default function index() {
               <Menu title="Home" href="/" />
             </div>
             <div className="d-grid">
-              <Auth isLogin />
+              <Auth />
             </div>
           </div>
         </div>
