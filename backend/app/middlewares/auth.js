@@ -10,8 +10,8 @@ module.exports = {
     }
 
     if (!token) {
-      throw new customError.Unauthenticated("Testtt");
-      //   console.log("Cekk invalid");
+      // throw new customError.Unauthenticated("Testtt");
+      console.log("Cekk invalid");
     }
     const payload = tokenValid({ token });
 
