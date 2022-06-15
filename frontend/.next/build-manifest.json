@@ -29,6 +29,14 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/overview.js"
+<<<<<<< Updated upstream
+=======
+    ],
+    "/transaction-detail": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/transaction-detail.js"
+>>>>>>> Stashed changes
     ]
   },
   "ampFirstPages": []
