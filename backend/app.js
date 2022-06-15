@@ -16,6 +16,7 @@ const productRouter = require("./app/product/router");
 const paymentRouter = require("./app/payment/router");
 const authRouter = require("./app/auth/router");
 const apiRouter = require("./app/api/v1/router");
+const settingRouter = require("./app/setting/router");
 
 // middleware
 
@@ -54,6 +55,7 @@ app.use(`${apiVersion1}/product`, productRouter);
 app.use(`${apiVersion1}/payment`, paymentRouter);
 app.use(`${apiVersion1}/auth`, authRouter);
 app.use(`${apiVersion1}`, apiRouter);
+app.use(`${apiVersion1}/setting`, settingRouter);
 
 app.use(notFound);
 app.use(errorHandleMiddleware);
