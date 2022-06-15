@@ -5,7 +5,6 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
     },
     email: {
       type: String,
@@ -32,7 +31,19 @@ userSchema.path("email").validate(
     const EMAIL_RE = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     return EMAIL_RE.test(value);
   },
-  (attr) => `${attr.value} harus email yang valid!`
+  (attr) => `${attr.value} email harus valid!`
+);
+
+userSchema.path("email").validate(
+  async function (value) {
+    try {
+      const count = await this.model("user").countDocuments({ email: value });
+      return !count;
+    } catch (error) {
+      throw error;
+    }
+  },
+  (attr) => `${attr.value} sudah terdaftar`
 );
 
 // hash password

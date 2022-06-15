@@ -1,4 +1,6 @@
 const Product = require("./model");
+const { StatusCodes } = require("http-status-codes");
+
 module.exports = {
   createProduct: async (req, res, next) => {
     const { name } = req.body;

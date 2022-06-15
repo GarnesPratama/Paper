@@ -16,7 +16,11 @@ const productRouter = require("./app/product/router");
 const paymentRouter = require("./app/payment/router");
 const authRouter = require("./app/auth/router");
 const apiRouter = require("./app/api/v1/router");
-const handleErrorMiddleware = require("./app/middlewares/handler-error");
+
+// middleware
+
+const { notFound } = require("./app/middlewares/notFound");
+const { errorHandleMiddleware } = require("./app/middlewares/handler-error");
 
 var app = express();
 const apiVersion1 = "/api/v1";
@@ -51,11 +55,14 @@ app.use(`${apiVersion1}/payment`, paymentRouter);
 app.use(`${apiVersion1}/auth`, authRouter);
 app.use(`${apiVersion1}`, apiRouter);
 
+app.use(notFound);
+app.use(errorHandleMiddleware);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
-// app.use(handleErrorMiddleware);
+
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development

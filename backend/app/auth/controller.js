@@ -1,4 +1,6 @@
 const User = require("../user/model");
+const { StatusCodes } = require("http-status-codes");
+const CustomApi = require("../errors/custom-api");
 const { createJWT, createToken } = require("../utils");
 
 module.exports = {
@@ -14,12 +16,9 @@ module.exports = {
       await data.save();
       // hapus password
       delete data._doc.password;
-      res.status(201).json({
-        message: "Create Auth Data Success",
-        data: data,
-      });
+      res.status(StatusCodes.CREATED).json({ data: data });
     } catch (error) {
-      res.redirect("/");
+      next(error);
     }
   },
 
@@ -27,20 +26,17 @@ module.exports = {
     try {
       const { email, password } = req.body;
       if (!email || !password) {
-        console.log("please provide email and password!");
+        throw new CustomApi.BadRequestError("Provide email and password");
       }
       // cek email
       const data = await User.findOne({ email: email });
       if (!data) {
-        console.log("Invalid credential");
+        throw new CustomApi.UnauthorizedError("Invalid Credentials");
       }
       // cek pw
       const isPasswordCorrect = await data.comparePassword(password);
       if (!isPasswordCorrect) {
-        // res.json({
-        //   message: "Invalid Credential",
-        // });
-        console.log("Invalid credential");
+        throw new CustomApi.UnauthorizedError("Invalid Credentials");
       }
 
       // Set token
@@ -48,7 +44,7 @@ module.exports = {
 
       res.status(200).json({ data: { token } });
     } catch (error) {
-      res.redirect("/");
+      next(error);
     }
   },
 };

@@ -10,13 +10,15 @@ module.exports = {
     }
 
     if (!token) {
-      // throw new customError.Unauthenticated("Testtt");
-      console.log("Cekk invalid");
+      throw new customError.UnauthenticatedError("Authentication invalid");
     }
     const payload = tokenValid({ token });
 
     req.user = {
       email: payload.email,
+      role: payload.role,
+      name: payload.name,
+      id: payload.userId,
     };
     next();
   },
