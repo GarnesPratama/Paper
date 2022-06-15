@@ -25,18 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/event": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/event.js"
+    ],
     "/overview": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/overview.js"
-<<<<<<< Updated upstream
-=======
-    ],
-    "/transaction-detail": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/transaction-detail.js"
->>>>>>> Stashed changes
     ]
   },
   "ampFirstPages": []
