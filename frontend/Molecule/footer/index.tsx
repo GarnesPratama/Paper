@@ -55,7 +55,7 @@ export default function sidebar() {
                   stroke-linejoin="round"
                 />
               </svg>
-              <MenuFooter title={"Overview"} href={"/"} />
+              <MenuFooter title={"Overview"} href={"/overview"} />
             </div>
             <div className="item mb-30">
               <svg
@@ -88,7 +88,7 @@ export default function sidebar() {
                   stroke-linejoin="round"
                 />
               </svg>
-              <MenuFooter title={"Transaction"} href={"/"} />
+              <MenuFooter title={"Transaction"} href={"/transaction-detail"} />
             </div>
             <div className="item mb-30">
               <svg
@@ -107,83 +107,7 @@ export default function sidebar() {
                   stroke-linejoin="round"
                 />
               </svg>
-              <MenuFooter title={"Messages"} href={"/"} />
-            </div>
-            <div className="item mb-30">
-              <svg
-                className="icon me-3"
-                width="25"
-                height="25"
-                viewBox="0 0 25 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clip-path="url(#clip0)">
-                  <path
-                    d="M21.9033 4.41406H3.90332C2.79875 4.41406 1.90332 5.30949 1.90332 6.41406V18.4141C1.90332 19.5186 2.79875 20.4141 3.90332 20.4141H21.9033C23.0079 20.4141 23.9033 19.5186 23.9033 18.4141V6.41406C23.9033 5.30949 23.0079 4.41406 21.9033 4.41406Z"
-                    stroke="#7E8CAC"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M1.90332 10.4141H23.9033"
-                    stroke="#7E8CAC"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0">
-                    <rect
-                      width="24"
-                      height="24"
-                      fill="white"
-                      transform="translate(0.90332 0.414062)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
-              <MenuFooter title={"Card"} href={"/"} />
-            </div>
-            <div className="item mb-30">
-              <svg
-                className="icon me-3"
-                width="25"
-                height="25"
-                viewBox="0 0 25 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clip-path="url(#clip0)">
-                  <path
-                    d="M12.9033 15.4141C16.7693 15.4141 19.9033 12.2801 19.9033 8.41406C19.9033 4.54807 16.7693 1.41406 12.9033 1.41406C9.03733 1.41406 5.90332 4.54807 5.90332 8.41406C5.90332 12.2801 9.03733 15.4141 12.9033 15.4141Z"
-                    stroke="#7E8CAC"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M9.11332 14.3039L7.90332 23.4139L12.9033 20.4139L17.9033 23.4139L16.6933 14.2939"
-                    stroke="#7E8CAC"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0">
-                    <rect
-                      width="24"
-                      height="24"
-                      fill="white"
-                      transform="translate(0.90332 0.414062)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
-              <MenuFooter title={"Achievment"} href={"/"} />
+              <MenuFooter title={"Event"} href={""} />
             </div>
             <div className="item mb-30">
               <svg

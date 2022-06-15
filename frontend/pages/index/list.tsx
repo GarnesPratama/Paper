@@ -9,12 +9,10 @@ export default function list(props: detailList) {
     <div>
       <ul className="fa-ul">
         <div>
-          <li>
-            <span className="fa-li">
-              <i className="fas fa-check"></i>
-            </span>
-            {list}
-          </li>
+          <span className="fa-li icon">
+            <i className="bi bi-check2-all"></i>
+          </span>
+          {list}
         </div>
       </ul>
     </div>

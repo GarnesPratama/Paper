@@ -16,6 +16,6 @@
     "incremental": true,
     "noImplicitAny": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/crud.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/crud.tsx", "Organism/Profile/mainEditProfile.js"],
   "exclude": ["node_modules"]
 }

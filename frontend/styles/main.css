@@ -714,3 +714,8 @@ footer .all-rights {
     opacity: 1;
   }
 }
+
+.icon {
+  margin-right: 10px;
+  color: #00A0F5;
+}

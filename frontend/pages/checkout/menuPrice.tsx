@@ -1,4 +1,5 @@
 import React from "react";
+import NumberFormat from "react-number-format";
 interface menuPrice {
   title: string;
   data: {
@@ -11,7 +12,16 @@ export default function menuPrice(props: menuPrice) {
   return (
     <div>
       <p className="text-lg color-palette-1 mb-20">
-        {title} <span className="purchase-details">{data.price}.000</span>
+        {title}{" "}
+        <span className="purchase-details">
+          <NumberFormat
+            value={data.price}
+            displayType={"text"}
+            thousandSeparator="."
+            prefix={"Rp."}
+            decimalSeparator=","
+          />
+        </span>
       </p>
     </div>
   );
