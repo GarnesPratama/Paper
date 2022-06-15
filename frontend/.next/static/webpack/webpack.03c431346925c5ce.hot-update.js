@@ -12,11 +12,16 @@ self["webpackHotUpdate_N_E"]("webpack",{},
 /******/ /* webpack/runtime/getFullHash */
 /******/ !function() {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:frontend/.next/static/webpack/webpack.0659be15aaaa4001.hot-update.js
 /******/ 	__webpack_require__.h = function() { return "dbc3efab0d8abc43"; }
 =======
 <<<<<<< Updated upstream:frontend/.next/static/webpack/webpack.06e2b9c801f93c65.hot-update.js
 /******/ 	__webpack_require__.h = function() { return "4f4539a20fc6bc82"; }
+>>>>>>> Stashed changes
+=======
+<<<<<<< Updated upstream:frontend/.next/static/webpack/webpack.07088de624ab5a12.hot-update.js
+/******/ 	__webpack_require__.h = function() { return "9d4ee389309bb2f5"; }
 >>>>>>> Stashed changes
 =======
 /******/ 	__webpack_require__.h = function() { return "bd567fe00d742492"; }

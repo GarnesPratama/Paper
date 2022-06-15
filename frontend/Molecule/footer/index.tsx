@@ -107,7 +107,11 @@ export default function sidebar() {
                   stroke-linejoin="round"
                 />
               </svg>
+<<<<<<< Updated upstream
               <MenuFooter title={"Event"} href={"/event"} />
+=======
+              <MenuFooter title={"Event"} href={""} />
+>>>>>>> Stashed changes
             </div>
             <div className="item mb-30">
               <svg
