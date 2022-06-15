@@ -6,21 +6,20 @@ import { getMenuCheckout } from "../../services/pricing";
 import { useState } from "react";
 import { menuCheckout } from "../../services/dataTypes";
 import { useCallback } from "react";
+import BtnCheckout from "./btnCheckout";
 
 export default function checkout() {
   const { query, isReady } = useRouter();
+  const router = useRouter();
   const [checkout, setcheckout] = useState({
     category: "",
     price: "",
   });
-  const Checkout = useCallback(
-    async (id) => {
-      const data = await getMenuCheckout(id);
-      console.log("data :", data);
-      setcheckout(data);
-    },
-    [getMenuCheckout]
-  );
+  const Checkout = useCallback(async (id) => {
+    const data = await getMenuCheckout(id);
+    console.log("data :", data);
+    setcheckout(data);
+  }, []);
   useEffect(() => {
     if (isReady) {
       console.log("router tersedia", query.id);
@@ -70,12 +69,13 @@ export default function checkout() {
           <div className="title-text pt-md-50 pt-0">
             <h2 className="text-4xl fw-bold color-palette-1 mb-10">Checkout</h2>
           </div>
-          <MenuCheckout title="Nama Paket" data={checkout} />
+
           <hr />
           <div className="purchase pt-md-50 pt-30">
             <h2 className="fw-bold text-xl color-palette-1 mb-20">
               Purchase Details
             </h2>
+            <MenuCheckout title="Nama Paket" data={checkout} />
           </div>
           <div className="payment pt-md-50 pb-md-50 pt-10 pb-10">
             <h2 className="fw-bold text-xl color-palette-1 mb-20">
@@ -89,15 +89,7 @@ export default function checkout() {
             <input type="checkbox" />
             <span className="checkmark"></span>
           </label>
-          <div className="d-md-block d-flex flex-column w-100 pt-50">
-            <a
-              className="btn btn-confirm-payment rounded-pill fw-medium text-white border-0 text-lg "
-              href="./complete-checkout.html"
-              role="button"
-            >
-              Konfirmasi Pembayaran
-            </a>
-          </div>
+          <BtnCheckout href="/completed" />
         </div>
       </section>
     </div>

@@ -30,20 +30,15 @@ const SignIn = () => {
       if (resp.status > 300) {
         toast.error("data tidak valid");
         console.log("error", resp);
-      }
-      if (resp.status < 300) {
+      } else if (resp.status < 300) {
         toast.success("login berhasil");
         console.log("succes", resp);
-        router.push("/index");
+        router.push("/");
       }
     }
   };
   return (
     <div>
-      <section className="bg">
-        <Navbar />
-      </section>
-
       <section className="login header bg">
         <div className="container">
           <div className="d-flex flex-column align-items-center hero gap-5">
