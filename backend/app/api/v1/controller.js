@@ -1,6 +1,7 @@
 const Product = require("../../product/model");
 const Payment = require("../../payment/model");
 const User = require("../../user/model");
+const Setting = require("../../setting/model");
 
 module.exports = {
   getAllProduct: async (req, res) => {
@@ -42,5 +43,17 @@ module.exports = {
     res.status(200).json({
       data: result,
     });
+  },
+
+  getAllSetting: async (req, res, next) => {
+    try {
+      const result = await Setting.find();
+      res.status(200).json({
+        message: "Get All Setting Data Success",
+        data: result,
+      });
+    } catch (error) {
+      next(error);
+    }
   },
 };

@@ -7,7 +7,6 @@ const settingSchema = mongoose.Schema(
     },
     logo: {
       type: String,
-      required: true,
     },
     alamat: {
       type: String,

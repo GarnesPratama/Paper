@@ -2,7 +2,7 @@ var createError = require("http-errors");
 var express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-var path = require("path");
+const path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 mongoose.connect(
@@ -25,6 +25,8 @@ const { errorHandleMiddleware } = require("./app/middlewares/handler-error");
 
 var app = express();
 const apiVersion1 = "/api/v1";
+
+//
 
 // cors
 app.use(bodyParser.json());

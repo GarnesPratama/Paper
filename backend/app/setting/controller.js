@@ -23,11 +23,12 @@ module.exports = {
         singkatanNama,
         lokasi,
         namaKetua,
-        logo: req.file.filename,
-        tandaTangan: req.file.filename,
-        buktiPembayaran: req.file.filename,
+        logo: req.files["logo"].filename,
+        tandaTangan: req.files["tandatangan"].filename,
+        buktiPembayaran: req.file,
       });
       await data.save();
+      console.log(data);
       res.status(201).json({
         message: "Post All Data Success",
         data: data,
