@@ -15,6 +15,11 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -25,20 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/completed": [
+    "/overview": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/completed.js"
-    ],
-    "/event": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/event.js"
-    ],
-    "/transaction-detail": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/transaction-detail.js"
+      "static/chunks/pages/overview.js"
     ]
   },
   "ampFirstPages": []
