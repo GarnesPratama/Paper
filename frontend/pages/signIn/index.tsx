@@ -36,9 +36,7 @@ const SignIn = () => {
         const { token } = resp.data.data;
         const tokenBase64 = btoa(token);
         console.log("token ", token);
-        //console.log("token ", tokenBase64);
         cookie.set("token", tokenBase64);
-        //console.log("succes", resp);
         router.push("/");
       }
     }
