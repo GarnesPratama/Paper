@@ -5,9 +5,21 @@ const settingSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    logo: {
-      type: String,
+    image: {
+      type: Array,
+      logo: {
+        type: String,
+      },
+      tandaTangan: {
+        type: String,
+      },
+      buktiPembayaran: {
+        type: String,
+      },
     },
+    // logo: {
+    //   type: Array,
+    // },
     alamat: {
       type: String,
     },
@@ -17,12 +29,12 @@ const settingSchema = mongoose.Schema(
     timeline: {
       type: Date,
     },
-    tandaTangan: {
-      type: String,
-    },
-    buktiPembayaran: {
-      type: String,
-    },
+    // tandaTangan: {
+    //   type: String,
+    // },
+    // buktiPembayaran: {
+    //   type: String,
+    // },
     tahun: {
       type: Date,
     },

@@ -13,6 +13,9 @@ module.exports = {
         singkatanNama,
         lokasi,
         namaKetua,
+        // logo,
+        // tandaTangan,
+        // buktiPembayaran,
       } = req.body;
       const data = new Setting({
         name,
@@ -23,9 +26,13 @@ module.exports = {
         singkatanNama,
         lokasi,
         namaKetua,
-        logo: req.files["logo"].filename,
-        tandaTangan: req.files["tandatangan"].filename,
-        buktiPembayaran: req.file,
+        image: req.files,
+        // logo: req.files,
+        // tandaTangan: req.files,
+        // buktiPembayaran: req.files,
+        // logo: req.files["logo"].filename,
+        // tandaTangan: req.files["tandatangan"].filename,
+        // buktiPembayaran: req.file,
       });
       await data.save();
       console.log(data);
