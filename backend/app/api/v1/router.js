@@ -7,5 +7,6 @@ router.get("/payment", productGetController.getAllPayment);
 router.get("/auth", productGetController.getAllUser);
 router.get("/checkout/:id", productGetController.checkout);
 router.get("/setting", productGetController.getAllSetting);
+router.get("/bank", productGetController.getAllBank);
 
 module.exports = router;
