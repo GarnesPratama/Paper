@@ -7,7 +7,7 @@ import { Router } from "@mui/icons-material";
 
 export default function auth() {
   const [isLogin, setisLogin] = useState(false);
-  const [users, setuser] = useState({
+  const [user, setuser] = useState({
     name: "",
   });
   const router = useRouter();
@@ -53,7 +53,7 @@ export default function auth() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    halo, {users.name}
+                    halo, {user.name}
                   </a>
 
                   <ul

@@ -95,3 +95,20 @@ export default function checkout() {
     </div>
   );
 }
+
+export async function getServerSideProps({ req }) {
+  const { token } = req.cookies;
+  console.log("token =", token);
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/signIn",
+      },
+    };
+  }
+  return {
+    props: {
+      user: {},
+    },
+  };
+}
