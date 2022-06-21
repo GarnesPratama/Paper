@@ -6,16 +6,31 @@ import Axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import cookie from "js-cookie";
+import GoogleLogin from "react-google-login";
+import { gapi } from "gapi-script";
+import { useEffect } from "react";
 
 const SignIn = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const router = useRouter();
+  // useEffect(() => {
+  //   function start() {
+  //     gapi.client.init({
+  //       clientId:
+  //         "126439219865-jst935eqdlkeudlbqdvnq4pbuvj235vd.apps.googleusercontent.com",
+  //       scope: "email",
+  //     });
+  //   }
+
+  //   gapi.load("client:auth2", start);
+  // }, []);
   const config = {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
   };
+
   const url = "http://localhost:4000/api/v1/auth/signin";
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -40,6 +55,19 @@ const SignIn = () => {
         router.push("/");
       }
     }
+  };
+
+  const responseGoogleSucces = (response) => {
+    console.log(response);
+    const token = response.tokenId;
+    const tokenBase64 = btoa(token);
+    console.log("token : ", tokenBase64);
+    cookie.set("token", tokenBase64);
+    router.push("/");
+  };
+  const responseGoogleError = (response) => {
+    console.log(response);
+    router.push("/signIn");
   };
   return (
     <div>
@@ -86,7 +114,15 @@ const SignIn = () => {
                   </a>
                 </Link>
               </div>
+              <GoogleLogin
+                clientId="247120865980-qqiurvdtubpmgo76j3nrserhbprcv2c8.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={responseGoogleSucces}
+                onFailure={responseGoogleError}
+                cookiePolicy={"single_host_origin"}
+              />
             </form>
+
             <ToastContainer />
           </div>
         </div>
