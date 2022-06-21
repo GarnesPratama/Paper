@@ -18,7 +18,7 @@ const settingSchema = mongoose.Schema(
       },
     },
     // logo: {
-    //   type: Array,
+    //   type: String,
     // },
     alamat: {
       type: String,

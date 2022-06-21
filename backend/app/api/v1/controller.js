@@ -2,6 +2,7 @@ const Product = require("../../product/model");
 const Payment = require("../../payment/model");
 const User = require("../../user/model");
 const Setting = require("../../setting/model");
+const Bank = require("../../bank/model");
 
 module.exports = {
   getAllProduct: async (req, res) => {
@@ -50,6 +51,18 @@ module.exports = {
       const result = await Setting.find();
       res.status(200).json({
         message: "Get All Setting Data Success",
+        data: result,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getAllBank: async (req, res, next) => {
+    try {
+      const result = await Bank.find();
+      res.status(200).json({
+        message: "Get All Bank Data Success",
         data: result,
       });
     } catch (error) {
