@@ -23,10 +23,7 @@ export default function index() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav mx-auto my-3 my-lg-0">
-              <Menu title="Home" href="/" active />
-              <Menu title="Home" href="/detail" />
-              <Menu title="Home" href="/game" />
-              <Menu title="Home" href="/" />
+
             </div>
             <div className="d-grid">
               <Auth />

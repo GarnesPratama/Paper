@@ -15,7 +15,7 @@ interface menuPricing {
 export default function pricing(props: menuPricing) {
   const { category, price, id, list } = props;
   return (
-    <Link href={`/checkout/${id}`}>
+    <Link href={`/checkout-step-1/${id}`}>
       <div>
         <div className="card-body">
           <h5 className="card-title text-muted text-uppercase text-center">

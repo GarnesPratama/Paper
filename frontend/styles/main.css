@@ -552,10 +552,6 @@ footer .all-rights {
     max-width: 100%;
   }
 }
-.checkout {
-  padding: 100px 0;
-  color: #FFFFFF;
-}
 .checkout .checkout-title, .checkout .event-details h5 {
   font-size: 32px;
   font-weight: 600;

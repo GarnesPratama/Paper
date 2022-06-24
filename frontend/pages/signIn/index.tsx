@@ -14,17 +14,17 @@ const SignIn = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const router = useRouter();
-  // useEffect(() => {
-  //   function start() {
-  //     gapi.client.init({
-  //       clientId:
-  //         "126439219865-jst935eqdlkeudlbqdvnq4pbuvj235vd.apps.googleusercontent.com",
-  //       scope: "email",
-  //     });
-  //   }
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId:
+          "730164056231-59h41a3bvpvu1n8e1r1t42rouh1rp26d.apps.googleusercontent.com",
+        scope: "email",
+      });
+    }
 
-  //   gapi.load("client:auth2", start);
-  // }, []);
+    gapi.load("client:auth2", start);
+  }, []);
   const config = {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -50,7 +50,7 @@ const SignIn = () => {
         toast.success("login berhasil");
         const { token } = resp.data.data;
         const tokenBase64 = btoa(token);
-        console.log("token ", token);
+        console.log("data ", tokenBase64);
         cookie.set("token", tokenBase64);
         router.push("/");
       }
@@ -115,7 +115,7 @@ const SignIn = () => {
                 </Link>
               </div>
               <GoogleLogin
-                clientId="247120865980-qqiurvdtubpmgo76j3nrserhbprcv2c8.apps.googleusercontent.com"
+                clientId="730164056231-59h41a3bvpvu1n8e1r1t42rouh1rp26d.apps.googleusercontent.com"
                 buttonText="Login"
                 onSuccess={responseGoogleSucces}
                 onFailure={responseGoogleError}
