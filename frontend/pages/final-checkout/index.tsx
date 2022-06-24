@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import NumberFormat from "react-number-format";
 
 export default function index() {
   const router = useRouter();
@@ -130,7 +131,16 @@ export default function index() {
                   <span className="purchase-details">{form4.category}</span>
                 </p>
                 <p className="text-lg color-palette-1 mb-20">
-                  Price <span className="purchase-details">{form4.price}</span>
+                  Price{" "}
+                  <span className="purchase-details">
+                    <NumberFormat
+                      thousandSeparator="."
+                      prefix={"Rp."}
+                      value={form4.price}
+                      displayType="text"
+                      decimalSeparator=","
+                    />
+                  </span>
                 </p>
                 <p className="text-lg color-palette-1 mb-20">
                   Tax (10%) <span className="purchase-details">Rp 5000</span>

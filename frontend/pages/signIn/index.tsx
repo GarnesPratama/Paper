@@ -58,11 +58,13 @@ const SignIn = () => {
   };
 
   const responseGoogleSucces = (response) => {
-    console.log(response);
+    //console.log(response);
     const token = response.tokenId;
     const tokenBase64 = btoa(token);
-    console.log("token : ", tokenBase64);
+    //console.log("token : ", tokenBase64);
     cookie.set("token", tokenBase64);
+    //const data = response.profileObj;
+    //console.log("data: ", data);
     router.push("/");
   };
   const responseGoogleError = (response) => {
@@ -116,6 +118,23 @@ const SignIn = () => {
               </div>
               <GoogleLogin
                 clientId="730164056231-59h41a3bvpvu1n8e1r1t42rouh1rp26d.apps.googleusercontent.com"
+                render={(renderProps) => (
+                  <button
+                    onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}
+                    className="btn-green"
+                  >
+                    <img
+                      src="images/Google Logo.png"
+                      alt="google logo"
+                      srcSet=""
+                      width={30}
+                      height={30}
+                      className="google-logo"
+                    />
+                    Login Dengan Google
+                  </button>
+                )}
                 buttonText="Login"
                 onSuccess={responseGoogleSucces}
                 onFailure={responseGoogleError}
@@ -129,6 +148,6 @@ const SignIn = () => {
       </section>
     </div>
   );
-};
+};;;
 
 export default SignIn;

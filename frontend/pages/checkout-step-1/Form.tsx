@@ -53,8 +53,6 @@ export default function Form(props: id) {
     <div>
       <form action="" className="form-checkout">
         <div className="form-row">
-          <h1>Paket yang dipilih : {checkout.category}</h1>
-          <h1>Harga : {checkout.price}</h1>
           <div className="form-group col-md-6">
             <label>Nama Paper</label>
             <input
@@ -126,6 +124,26 @@ export default function Form(props: id) {
             id="exampleFormControlInput1"
             placeholder="Online Via Zoom"
             onChange={(e) => setketua(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Paket Yang Dipilih</label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleFormControlInput1"
+            placeholder={checkout.category}
+            disabled
+          />
+        </div>
+        <div className="form-group">
+          <label>Harga</label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleFormControlInput1"
+            placeholder={checkout.price}
+            disabled
           />
         </div>
 

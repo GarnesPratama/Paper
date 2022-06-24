@@ -41,6 +41,10 @@
     padding: 0.5rem 1.25rem;
 }
 
+.google-logo {
+    margin-right: 10px;
+}
+
 .navbar .dropdown-item:focus, .dropdown-item:hover{
     color: #4D17E2;
     text-decoration: underline;
