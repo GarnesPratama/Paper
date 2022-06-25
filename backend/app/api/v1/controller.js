@@ -1,8 +1,9 @@
 const Product = require("../../product/model");
 const Payment = require("../../payment/model");
 const User = require("../../user/model");
-const Setting = require("../../setting/model");
+const Event = require("../../event/model");
 const Bank = require("../../bank/model");
+const OAuth = require("../../OAuth2/model");
 
 module.exports = {
   getAllProduct: async (req, res) => {
@@ -46,11 +47,11 @@ module.exports = {
     });
   },
 
-  getAllSetting: async (req, res, next) => {
+  getAllEvent: async (req, res, next) => {
     try {
-      const result = await Setting.find();
+      const result = await Event.find();
       res.status(200).json({
-        message: "Get All Setting Data Success",
+        message: "Get All Event Data Success",
         data: result,
       });
     } catch (error) {
@@ -63,6 +64,18 @@ module.exports = {
       const result = await Bank.find();
       res.status(200).json({
         message: "Get All Bank Data Success",
+        data: result,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getAllOAuth2: async (req, res, next) => {
+    try {
+      const result = await OAuth.find();
+      res.status(200).json({
+        message: "Get All Login Google Data Success",
         data: result,
       });
     } catch (error) {
