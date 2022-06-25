@@ -10,13 +10,10 @@ export default function index() {
             <li className="fulled"></li>
             <li className="active"></li>
             <li></li>
-            <li></li>
           </ul>
         </div>
-        <h3 className="title mt-5">Input Gambar Paper</h3>
-        <p className="detail">
-          Silahkan isi form dibawah ini untuk melanjutkan metode pembayaran
-        </p>
+        <h3 className="title mt-5">Pembayaran</h3>
+        <p className="detail">Silahkan pilih metode pembayaran dibawah ini</p>
         <div className="container form">
           <Form />
         </div>

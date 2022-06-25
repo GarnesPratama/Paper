@@ -1,61 +1,100 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 
-interface id {
-  id: string;
-}
-
-export default function Form(props: id) {
-  const { id } = props;
-  const [logo, setlogo] = useState("");
-  const [ttd, setttd] = useState("");
-  const { query, isReady } = useRouter();
-  useEffect(() => {
-    if (isReady) {
-      console.log("router tersedia", query.id);
-    } else {
-      console.log("router tidak tersedia");
-    }
-  });
+export default function Form() {
+  const [bukti, setbukti] = useState("");
+  const [asalbank, setasalbank] = useState("");
+  const [rekening, setrekening] = useState("");
+  const [pengirim, setpengirim] = useState("");
   const router = useRouter();
   const onNext = async (e) => {
     e.preventDefault();
     const data = {
-      logo,
-      ttd,
+      bukti,
+      asalbank,
+      rekening,
+      pengirim,
     };
-    localStorage.setItem("checkout-form-2", JSON.stringify(data));
-    router.push(`/checkout-step-3`);
+    localStorage.setItem("checkout-form-3", JSON.stringify(data));
+    router.push("/final-checkout");
   };
   return (
     <div>
       <form action="" className="form-checkout">
-        <div className="form-group">
-          <label>Logo Paper</label>
-          <input
-            type="file"
-            className="form-control-file"
-            id="exampleFormControlFile1"
-            onChange={(e) => setlogo(e.target.value)}
-          />
-          <small>jpg/jpeg/png</small>
-        </div>
-        <div className="form-group mt-4">
-          <label>Tanda Tangan Ketua Pelaksana</label>
-          <input
-            type="file"
-            className="form-control-file"
-            id="exampleFormControlFile1"
-            onChange={(e) => setttd(e.target.value)}
-          />
-          <small>jpg/jpeg/png</small>
-        </div>
+        <div className="form-row">
+          <div className="form-group col-md-6 bank-setting">
+            <center>
+              <div className="keterangan">
+                <p>
+                  Pilihan Bank dan Nomer <br />
+                  Rekening yang tersedia
+                </p>
+              </div>
+              <div className="bank-bni mt-5">
+                <img src="images/BNI-LOGO.png" width="180" alt="" />
+                <p className="bank mt-3">
+                  1790683427 <br />
+                  (a.n Putra Mahabarata)
+                </p>
+              </div>
+              <div className="bank-bca mt-5 mb-5">
+                <img src="images/BCA-LOGO.jpg" width="180" alt="" />
+                <p className="bank mt-3">
+                  09536256493 <br />
+                  (a.n Putri Mahabarata)
+                </p>
+              </div>
+            </center>
+          </div>
+          <div className="form-group col-md-6">
+            <div className="form-group">
+              <label>Bukti Pembayaran</label>
+              <input
+                type="file"
+                className="form-control-file"
+                id="exampleFormControlFile1"
+                onChange={(e) => setbukti(e.target.value)}
+              />
 
+              <small>jpg/jpeg/png</small>
+            </div>
+            <div className="form-group">
+              <label>Asal Bank</label>
+              <input
+                type="text"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="BNI"
+                onChange={(e) => setasalbank(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label>Nomor Rekening</label>
+              <input
+                type="number"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="8742963xxx"
+                onChange={(e) => setrekening(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label>Nama Pengirim</label>
+              <input
+                type="text"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Sukardi"
+                onChange={(e) => setpengirim(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
         <center>
           <div className="form-group row mt-5">
             <div className="col-sm-12">
               <a
-                href="/1checkout.html"
+                href="/2checkout.html"
                 type="submit"
                 id="progress-next"
                 className="btn rounded-pill"
@@ -63,8 +102,9 @@ export default function Form(props: id) {
                 Prev
               </a>
               <a
-                href="/3checkout.html"
-                type="button"
+                href="/4checkout.html"
+                type=""
+                id="progress-next"
                 className="btn rounded-pill"
                 onClick={onNext}
               >

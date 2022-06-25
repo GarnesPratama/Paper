@@ -30,11 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/checkout-step-2.js"
     ],
-    "/checkout-step-3": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/checkout-step-3.js"
-    ],
     "/final-checkout": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

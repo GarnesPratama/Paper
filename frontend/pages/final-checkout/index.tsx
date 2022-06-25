@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import NumberFormat from "react-number-format";
+import axios from "axios";
 
 export default function index() {
   const router = useRouter();
@@ -27,6 +28,7 @@ export default function index() {
     category: "",
     price: "",
   });
+  const url = "http://localhost:4000/api/v1/event/post";
 
   useEffect(() => {
     const data1 = localStorage.getItem("checkout-form-1");
@@ -44,8 +46,26 @@ export default function index() {
   }, []);
   const onSubmit = async (e) => {
     e.preventDefault();
-
-    router.push("/completed");
+    const data = new FormData();
+    data.append("namaPaper", form1.namaPaper);
+    data.append("singkatan", form1.singkatan);
+    data.append("email", form1.email);
+    data.append("waktu", form1.waktu);
+    data.append("alamat", form1.alamat);
+    data.append("lokasi", form1.lokasi);
+    data.append("ketua", form1.ketua);
+    data.append("namaPaper", form1.namaPaper);
+    data.append("asalbank", form3.asalbank);
+    data.append("rekening", form3.rekening);
+    data.append("bukti", form3.bukti);
+    data.append("pengirim", form3.pengirim);
+    if (!data) {
+      console.log("error");
+    } else {
+      const resp = await axios.post(url, data);
+      console.log("data :", resp);
+    }
+    //router.push("/completed");
   };
 
   return (
@@ -53,7 +73,6 @@ export default function index() {
       <div className="container body mt-5">
         <div className="container">
           <ul className="progressbar">
-            <li className="fulled"></li>
             <li className="fulled"></li>
             <li className="fulled"></li>
             <li className="active"></li>
@@ -100,24 +119,6 @@ export default function index() {
                   Nama Ketua
                   <span className="purchase-details color-palette-1">
                     {form1.ketua}
-                  </span>
-                </p>
-                <p className="text-lg color-palette-1 mb-20">
-                  Logo Paper
-                  <span className="purchase-details color-palette-1">
-                    {form2.logo}
-                  </span>
-                </p>
-                <p className="text-lg color-palette-1 mb-20">
-                  Tanda Tangan
-                  <span className="purchase-details color-palette-1">
-                    {form2.ttd}
-                  </span>
-                </p>
-                <p className="text-lg color-palette-1 mb-20">
-                  Bukti Pembayaran
-                  <span className="purchase-details color-palette-1">
-                    {form3.bukti}
                   </span>
                 </p>
               </div>
@@ -179,7 +180,7 @@ export default function index() {
           <center>
             <div className="form-group row mt-5">
               <div className="col-sm-12">
-                <a href="/5checkout.html" type="" className="btn rounded-pill">
+                <a type="" className="btn rounded-pill" onClick={onSubmit}>
                   Checkout
                 </a>
               </div>
