@@ -2,5 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/final-checkout": "pages/final-checkout.js"
+  "/overview": "pages/overview.js"
 }

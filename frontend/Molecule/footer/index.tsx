@@ -1,7 +1,30 @@
 import React from "react";
 import MenuFooter from "./menuFooter";
+import Cookies from "js-cookie";
+import JWT_decode from "jwt-decode";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function sidebar() {
+  const router = useRouter();
+  const [user, setuser] = useState({
+    email: "",
+    name: "",
+    picture: "",
+  });
+  useEffect(() => {
+    const token = Cookies.get("token");
+    const JWT_token = atob(token);
+    const payload = JWT_decode(JWT_token);
+    console.log("data : ", payload);
+    const user = payload;
+    setuser(user);
+  }, []);
+  const logOut = () => {
+    Cookies.remove("token");
+    router.push("/");
+  };
+
   return (
     <div>
       <section className="overview overflow-auto">
@@ -9,15 +32,16 @@ export default function sidebar() {
           <div className="content pt-50 pb-30 ps-30">
             <div className="user text-center pb-50 pe-30">
               <img
-                src="../assets/img/avatar-1.png"
+                src={user.picture}
                 width="90"
                 height="90"
                 className="img-fluid mb-20"
+                style={{ borderRadius: 100 }}
               />
               <h2 className="fw-bold text-xl color-palette-1 m-0">
-                Shayna Anne
+                {user.name}
               </h2>
-              <p className="color-palette-1 m-0">shayna@anne.com</p>
+              <p className="color-palette-1 m-0">{user.email}</p>
             </div>
             <div className="menus">
               <div className="item active mb-30">
@@ -130,7 +154,11 @@ export default function sidebar() {
                   height="25"
                 />
                 <p className="item-title m-0">
-                  <a href="" className="text-lg text-decoration-none ms-3">
+                  <a
+                    href=""
+                    className="text-lg text-decoration-none ms-3"
+                    onClick={logOut}
+                  >
                     Log Out
                   </a>
                 </p>

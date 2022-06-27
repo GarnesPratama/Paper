@@ -17,3 +17,9 @@ export interface menuCheckout {
     price: string;
   };
 }
+
+export interface menuOverview {
+  ketua: string;
+  singkatan: string;
+  price: number;
+}

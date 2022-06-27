@@ -267,10 +267,10 @@ export default function index() {
             </p>
           </div>
           <div className="button-group d-flex flex-column mx-auto">
-            <Link href={"/dashboard"}>
+            <Link href={"/overview"}>
               <a
                 className="btn btn-dashboard fw-medium text-lg text-white rounded-pill mb-16"
-                href="../member/overview.html"
+                href=""
                 role="button"
               >
                 My Dashboard
@@ -278,7 +278,7 @@ export default function index() {
             </Link>
             <a
               className="btn btn-whatsapp fw-medium text-lg color-palette-1 rounded-pill"
-              href="#"
+              href="https://wa.me/6285155160203?text=Saya%20tertarik%20dengan%20mobil%20Anda%20yang%20dijual"
               role="button"
             >
               WhatsApp ke Admin

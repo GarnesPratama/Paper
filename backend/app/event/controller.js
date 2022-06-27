@@ -15,6 +15,8 @@ module.exports = {
         asalbank,
         pengirim,
         rekening,
+        category,
+        price,
       } = req.body;
       const data = new Event({
         alamat,
@@ -28,6 +30,8 @@ module.exports = {
         bukti: req.file.filename,
         pengirim,
         rekening,
+        category,
+        price,
         // logo: req.files,
         // tandaTangan: req.files,
         // buktiPembayaran: req.files,

@@ -27,10 +27,10 @@ export default function Form(props: id) {
   }, []);
   useEffect(() => {
     if (isReady) {
-      console.log("router tersedia", query.id);
+      //console.log("router tersedia", query.id);
       Checkout(query.id);
     } else {
-      console.log("router tidak tersedia");
+      //console.log("router tidak tersedia");
     }
   });
   const onNext = async (e) => {

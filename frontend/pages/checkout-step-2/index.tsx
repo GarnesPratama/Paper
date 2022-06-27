@@ -10,6 +10,7 @@ export default function index() {
             <li className="fulled"></li>
             <li className="active"></li>
             <li></li>
+            <li></li>
           </ul>
         </div>
         <h3 className="title mt-5">Pembayaran</h3>

@@ -34,6 +34,12 @@ const eventSchema = mongoose.Schema(
     rekening: {
       type: String,
     },
+    category: {
+      type: String,
+    },
+    price: {
+      type: String,
+    },
 
     // tandaTangan: {
     //   type: String,

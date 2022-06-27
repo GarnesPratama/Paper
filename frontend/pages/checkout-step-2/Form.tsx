@@ -10,14 +10,14 @@ export default function Form() {
   const onNext = async (e) => {
     e.preventDefault();
     const data = {
-      bukti,
       asalbank,
       rekening,
       pengirim,
     };
+    //console.log("data ", data);
     localStorage.setItem("checkout-form-3", JSON.stringify(data));
-    router.push("/final-checkout");
-  };
+    router.push("/checkout-step-3");
+  };;
   return (
     <div>
       <form action="" className="form-checkout">
@@ -47,17 +47,6 @@ export default function Form() {
             </center>
           </div>
           <div className="form-group col-md-6">
-            <div className="form-group">
-              <label>Bukti Pembayaran</label>
-              <input
-                type="file"
-                className="form-control-file"
-                id="exampleFormControlFile1"
-                onChange={(e) => setbukti(e.target.value)}
-              />
-
-              <small>jpg/jpeg/png</small>
-            </div>
             <div className="form-group">
               <label>Asal Bank</label>
               <input
