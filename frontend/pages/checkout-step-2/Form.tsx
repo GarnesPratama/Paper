@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 export default function Form() {
   const [bukti, setbukti] = useState("");
@@ -14,10 +15,14 @@ export default function Form() {
       rekening,
       pengirim,
     };
+    if (!asalbank || !rekening || !pengirim) {
+      toast.error("Lengkapi data dengan benar");
+    } else {
+      localStorage.setItem("checkout-form-3", JSON.stringify(data));
+      router.push("/checkout-step-3");
+    }
     //console.log("data ", data);
-    localStorage.setItem("checkout-form-3", JSON.stringify(data));
-    router.push("/checkout-step-3");
-  };;
+  };;;
   return (
     <div>
       <form action="" className="form-checkout">

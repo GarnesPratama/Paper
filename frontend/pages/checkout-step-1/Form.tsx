@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getMenuCheckout } from "../../services/pricing";
+import { toast } from "react-toastify";
 
 interface id {
   id: string;
@@ -39,22 +40,34 @@ export default function Form(props: id) {
     const data = {
       namaPaper,
       singkatan,
-      email,
-      waktu,
-      alamat,
-      lokasi,
+      // email,
+      // waktu,
+      // alamat,
+      // lokasi,
       ketua,
     };
-    localStorage.setItem("checkout-form-1", JSON.stringify(data));
-    localStorage.setItem("paket", JSON.stringify(checkout));
-    router.push("/checkout-step-2");
+    if (
+      !namaPaper ||
+      !singkatan ||
+      // !email ||
+      // !waktu ||
+      // !alamat ||
+      // !lokasi ||
+      !ketua
+    ) {
+      toast.error("Lengkapi data dengan baik dan benar");
+    } else {
+      localStorage.setItem("checkout-form-1", JSON.stringify(data));
+      localStorage.setItem("paket", JSON.stringify(checkout));
+      router.push("/checkout-step-2");
+    }
   };
   return (
     <div>
       <form action="" className="form-checkout">
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>Nama Paper</label>
+            <label>Conference Name</label>
             <input
               type="text"
               className="form-control"
@@ -64,7 +77,7 @@ export default function Form(props: id) {
             />
           </div>
           <div className="form-group col-md-6">
-            <label>Singkatan Nama Paper</label>
+            <label>Conference (Short Name)</label>
             <input
               type="text"
               className="form-control"
@@ -75,7 +88,7 @@ export default function Form(props: id) {
           </div>
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label>Email</label>
           <input
             type="email"
@@ -115,9 +128,9 @@ export default function Form(props: id) {
             placeholder="Online Via Zoom"
             onChange={(e) => setlokasi(e.target.value)}
           />
-        </div>
+        </div> */}
         <div className="form-group">
-          <label>Nama Ketua</label>
+          <label>Nama Ketua / Penanggungjawab</label>
           <input
             type="text"
             className="form-control"

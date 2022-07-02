@@ -44,6 +44,14 @@ export default function index() {
     setform3(form_3);
     setform4(form_4);
   }, []);
+  var min = 1;
+  var max = 100;
+  var random = min + Math.random() * (max - min);
+  const token = Math.round(random);
+  const normal = Math.round(form4.price / 1.11);
+  const tax = Math.round((normal * 11) / 100);
+  const total = normal + tax + token;
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -120,19 +128,35 @@ export default function index() {
                     <NumberFormat
                       thousandSeparator="."
                       prefix={"Rp."}
-                      value={form4.price}
+                      value={normal}
                       displayType="text"
                       decimalSeparator=","
                     />
                   </span>
                 </p>
                 <p className="text-lg color-palette-1 mb-20">
-                  Tax (10%) <span className="purchase-details">Rp 5000</span>
+                  Tax (11%){" "}
+                  <span className="purchase-details">
+                    {" "}
+                    <NumberFormat
+                      thousandSeparator="."
+                      prefix={"Rp."}
+                      value={tax}
+                      displayType="text"
+                      decimalSeparator=","
+                    />
+                  </span>
                 </p>
                 <p className="text-lg color-palette-1 mb-20">
-                  Total
+                  Total (include tax)
                   <span className="purchase-details color-palette-4">
-                    Rp 55.000
+                    <NumberFormat
+                      thousandSeparator="."
+                      prefix={"Rp."}
+                      value={total}
+                      displayType="text"
+                      decimalSeparator=","
+                    />
                   </span>
                 </p>
               </div>
@@ -153,11 +177,6 @@ export default function index() {
                   <span className="payment-details">{form3.pengirim}</span>
                 </p>
               </div>
-              <label className="checkbox-label text-lg color-palette-1">
-                I have transferred the money
-                <input type="checkbox" />
-                <span className="checkmark"></span>
-              </label>
             </div>
           </section>
           <center>

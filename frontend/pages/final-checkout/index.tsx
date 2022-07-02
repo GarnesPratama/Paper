@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import NumberFormat from "react-number-format";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function index() {
   const router = useRouter();
@@ -45,10 +46,10 @@ export default function index() {
     const data = new FormData();
     data.append("namaPaper", form1.namaPaper);
     data.append("singkatan", form1.singkatan);
-    data.append("email", form1.email);
-    data.append("waktu", form1.waktu);
-    data.append("alamat", form1.alamat);
-    data.append("lokasi", form1.lokasi);
+    // data.append("email", form1.email);
+    // data.append("waktu", form1.waktu);
+    // data.append("alamat", form1.alamat);
+    // data.append("lokasi", form1.lokasi);
     data.append("ketua", form1.ketua);
     data.append("asalbank", form3.asalbank);
     data.append("rekening", form3.rekening);
@@ -59,17 +60,17 @@ export default function index() {
     data.append("bukti", bukti);
 
     console.log("bukti", bukti);
-    if (!data) {
-      console.log("error");
+    if (!bukti) {
+      toast.error("Lengkapi data");
     } else {
       const resp = await axios.post(url, data);
       console.log("data", resp);
+      router.push("/completed");
+      localStorage.removeItem("checkout-form-1");
+      localStorage.removeItem("checkout-form-2");
+      localStorage.removeItem("checkout-form-3");
+      localStorage.removeItem("paket");
     }
-    router.push("/completed");
-    localStorage.removeItem("checkout-form-1");
-    localStorage.removeItem("checkout-form-2");
-    localStorage.removeItem("checkout-form-3");
-    localStorage.removeItem("paket");
   };
 
   return (

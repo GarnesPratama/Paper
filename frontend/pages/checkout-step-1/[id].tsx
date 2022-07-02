@@ -13,7 +13,7 @@ export default function index() {
             <li></li>
           </ul>
         </div>
-        <h3 className="title mt-5">Input Data Paper</h3>
+        <h3 className="title mt-5">Input Data Conference</h3>
         <p className="detail">
           Silahkan isi form dibawah ini untuk melanjutkan metode pembayaran
         </p>

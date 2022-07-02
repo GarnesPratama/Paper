@@ -4,11 +4,17 @@ import jwt_decode from "jwt-decode";
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
 
+interface navbar {
+  id: string;
+  email: string;
+}
 
-export default function auth() {
+export default function auth(props: navbar) {
+  const { id, email } = props;
   const [isLogin, setisLogin] = useState(false);
   const [user, setuser] = useState({
     name: "",
+    email: "",
   });
   const router = useRouter();
   useEffect(() => {
@@ -61,12 +67,14 @@ export default function auth() {
                     aria-labelledby="dropdownMenuLink"
                   >
                     <li>
-                      <a
-                        className="dropdown-item text-lg color-palette-2"
-                        href="overview"
-                      >
-                        Dashboard
-                      </a>
+                      <Link href={`/dashboard/${user.email}`}>
+                        <a
+                          className="dropdown-item text-lg color-palette-2"
+                          href="overview"
+                        >
+                          Dashboard
+                        </a>
+                      </Link>
                     </li>
 
                     <li>

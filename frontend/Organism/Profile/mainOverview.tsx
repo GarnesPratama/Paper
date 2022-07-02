@@ -2,16 +2,26 @@ import React, { useEffect, useState } from "react";
 import { menuOverview } from "../../services/dataTypes";
 import { getMenuOverview } from "../../services/overview";
 import NumberFormat from "react-number-format";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
+import jwtDecode from "jwt-decode";
 
 export default function mainEditProfile() {
   const [data, setData] = useState([]);
+  const { query, isReady } = useRouter();
   const getOverview = async () => {
     const response = await getMenuOverview();
     setData(response);
   };
   useEffect(() => {
-    getOverview();
-  }, []);
+    if (isReady) {
+      console.log("router tersedia", query.id);
+      //Checkout(query.id);
+    } else {
+      console.log("router tidak tersedia");
+    }
+  });
+
   return (
     <div>
       <main className="main-wrapper">

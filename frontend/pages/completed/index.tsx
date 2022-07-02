@@ -278,7 +278,7 @@ export default function index() {
             </Link>
             <a
               className="btn btn-whatsapp fw-medium text-lg color-palette-1 rounded-pill"
-              href="https://wa.me/6285155160203?text=Saya%20tertarik%20dengan%20mobil%20Anda%20yang%20dijual"
+              href="https://wa.me/6285155160203?text=Saya%20ingin%20konfirmasi%20pembayaran%20conference"
               role="button"
             >
               WhatsApp ke Admin

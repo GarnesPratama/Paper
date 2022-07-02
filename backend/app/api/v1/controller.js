@@ -5,6 +5,7 @@ const Event = require("../../event/model");
 const Bank = require("../../bank/model");
 const OAuth = require("../../OAuth2/model");
 
+
 module.exports = {
   getAllProduct: async (req, res) => {
     try {
@@ -43,6 +44,15 @@ module.exports = {
     const { id } = req.params;
     const result = await Payment.findOne({ _id: id }).select("category price");
     res.status(200).json({
+      data: result,
+    });
+  },
+
+  overview: async (req, res) => {
+    const { email } = req.params;
+    const result = await Event.find({ email: email });
+    res.status(200).json({
+      message: "Get All Event Data Success",
       data: result,
     });
   },
