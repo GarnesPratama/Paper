@@ -9,5 +9,6 @@ router.get("/checkout/:id", productGetController.checkout);
 router.get("/event", productGetController.getAllEvent);
 router.get("/bank", productGetController.getAllBank);
 router.get("/oauth", productGetController.getAllOAuth2);
+router.get("/setting", productGetController.getAllSetting);
 
 module.exports = router;
