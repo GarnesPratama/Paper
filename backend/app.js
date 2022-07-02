@@ -19,6 +19,7 @@ const apiRouter = require("./app/api/v1/router");
 const eventRouter = require("./app/event/router");
 const bankRouter = require("./app/bank/router");
 const oAuthRouter = require("./app/OAuth2/router");
+const settingRouter = require("./app/setting/router");
 
 // middleware
 
@@ -62,6 +63,7 @@ app.use(`${apiVersion1}`, apiRouter);
 app.use(`${apiVersion1}/event`, eventRouter);
 app.use(`${apiVersion1}/bank`, bankRouter);
 app.use(`${apiVersion1}/oauth`, oAuthRouter);
+app.use(`${apiVersion1}/setting`, settingRouter);
 
 app.use(notFound);
 app.use(notFound);

@@ -4,6 +4,7 @@ const User = require("../../user/model");
 const Event = require("../../event/model");
 const Bank = require("../../bank/model");
 const OAuth = require("../../OAuth2/model");
+const Setting = require("../../setting/model");
 
 
 module.exports = {
@@ -87,6 +88,17 @@ module.exports = {
       res.status(200).json({
         message: "Get All Login Google Data Success",
         data: result,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+  getAllSetting: async (req, res, next) => {
+    try {
+      const data = await Setting.find();
+      res.status(200).json({
+        message: "Success",
+        data: data,
       });
     } catch (error) {
       next(error);
