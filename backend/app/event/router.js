@@ -14,7 +14,16 @@ const upload = require("../middlewares/multer");
 // ]);
 
 // router.post("/post", settingController.createSetting);
-router.post("/post", upload.single("bukti"), eventController.createEvent);
-router.put("/:id", upload.single("bukti"), eventController.updateEvent);
+router.post(
+  "/post/:namaPaper",
+  upload.single("bukti"),
+  eventController.createEvent
+);
+router.put("/:namaPaper", upload.single("bukti"), eventController.updateEvent);
+router.delete(
+  "/:namaPaper",
+  upload.single("bukti"),
+  eventController.deleteEvent
+);
 
 module.exports = router;

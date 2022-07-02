@@ -6,7 +6,6 @@ const Bank = require("../../bank/model");
 const OAuth = require("../../OAuth2/model");
 const Setting = require("../../setting/model");
 
-
 module.exports = {
   getAllProduct: async (req, res) => {
     try {
@@ -64,6 +63,19 @@ module.exports = {
       res.status(200).json({
         message: "Get All Event Data Success",
         data: result,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  conference: async (req, res, next) => {
+    try {
+      const { namaPaper } = req.params;
+      const data = await Event.findOne({ namaPaper: namaPaper });
+      res.status(200).json({
+        message: "Find One Data Success",
+        data: data,
       });
     } catch (error) {
       next(error);
