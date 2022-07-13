@@ -11,6 +11,6 @@ router.get("/event", productGetController.getAllEvent);
 router.get("/bank", productGetController.getAllBank);
 router.get("/oauth", productGetController.getAllOAuth2);
 router.get("/setting", productGetController.getAllSetting);
-router.get("/event/:namaPaper", productGetController.conference);
+router.get("/event/:singkatan", productGetController.conference);
 
 module.exports = router;

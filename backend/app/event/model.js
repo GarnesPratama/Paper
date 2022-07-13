@@ -37,9 +37,9 @@ const eventSchema = mongoose.Schema(
     category: {
       type: String,
     },
-    price: {
-      type: String,
-    },
+    // price: {
+    //   type: String,
+    // },
 
     // tandaTangan: {
     //   type: String,

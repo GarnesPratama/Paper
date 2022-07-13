@@ -28,6 +28,9 @@ export default function index() {
     category: "",
     price: "",
   });
+  const [email, setemail] = useState({
+    email: "",
+  });
   const url = "http://localhost:4000/api/v1/event/post";
 
   useEffect(() => {
@@ -35,14 +38,17 @@ export default function index() {
     const data2 = localStorage.getItem("checkout-form-2");
     const data3 = localStorage.getItem("checkout-form-3");
     const data4 = localStorage.getItem("paket");
+    const data5 = localStorage.getItem("email");
     const form_1 = JSON.parse(data1);
     const form_2 = JSON.parse(data2);
     const form_3 = JSON.parse(data3);
     const form_4 = JSON.parse(data4);
+    const form_5 = JSON.parse(data5);
     setform1(form_1);
     setform2(form_2);
     setform3(form_3);
     setform4(form_4);
+    setemail(form_5);
   }, []);
   var min = 1;
   var max = 100;
@@ -88,7 +94,8 @@ export default function index() {
                   <span className="purchase-details">{form1.singkatan}</span>
                 </p>
                 <p className="text-lg color-palette-1 mb-20">
-                  Email<span className="purchase-details">{form1.email}</span>
+                  Email
+                  <span className="purchase-details">{email.email}</span>
                 </p>
                 <p className="text-lg color-palette-1 mb-20">
                   Waktu Penyelenggaraan

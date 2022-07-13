@@ -4,7 +4,6 @@ const { StatusCodes } = require("http-status-codes");
 module.exports = {
   createEvent: async (req, res, next) => {
     try {
-      const { namaPaper } = req.params;
       const {
         alamat,
         email,
@@ -12,7 +11,7 @@ module.exports = {
         lokasi,
         singkatan,
         waktu,
-        // namaPaper,
+        namaPaper,
         asalbank,
         pengirim,
         rekening,
@@ -53,20 +52,21 @@ module.exports = {
 
   updateEvent: async (req, res, next) => {
     try {
-      const { namaPaper } = req.params;
+      const { singkatan } = req.params;
       const {
         alamat,
         email,
         ketua,
         lokasi,
-        singkatan,
+        //singkatan,
         waktu,
         asalbank,
         pengirim,
         rekening,
+        namaPaper,
       } = req.body;
       const data = await Event.findOneAndUpdate(
-        { namaPaper: namaPaper },
+        { singkatan: singkatan },
         {
           alamat,
           email,
@@ -91,8 +91,8 @@ module.exports = {
 
   deleteEvent: async (req, res, next) => {
     try {
-      const { namaPaper } = req.params;
-      const data = await Event.findOneAndRemove({ namaPaper: namaPaper });
+      const { singkatan } = req.params;
+      const data = await Event.findOneAndRemove({ singkatan: singkatan });
       await data.remove();
       res.status(200).json({
         message: "Delete Success",
