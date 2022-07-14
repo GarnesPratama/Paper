@@ -40,8 +40,7 @@ const eventSchema = mongoose.Schema(
     price: {
       type: String,
     },
-
-    // tandaTangan: {
+    // logo: {
     //   type: String,
     // },
 

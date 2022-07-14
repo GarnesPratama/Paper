@@ -3,7 +3,7 @@ const router = express.Router();
 const eventController = require("./controller");
 const upload = require("../middlewares/multer");
 // const uploadMultiple = upload.fields([
-//   { name: "logo", maxCount: 1 },
+//   { name: "logo", maxCount: 2 },
 //   { name: "tandaTangan", maxCount: 1 },
 //   { name: "buktiPembayaran", maxCount: 1 },
 // ]);
@@ -19,6 +19,7 @@ router.post(
   upload.single("bukti"),
   eventController.createEvent
 );
+// router.post("/post/:namaPaper", uploadMultiple, eventController.createEvent);
 router.put("/:namaPaper", upload.single("bukti"), eventController.updateEvent);
 router.delete(
   "/:namaPaper",
