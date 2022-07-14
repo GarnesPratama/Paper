@@ -15,7 +15,7 @@ export default function Input(props: Input) {
         placeholder={placeholder}
         className={className}
         onChange={onChange}
-        disabled
+        disabled={disabled}
       />
     </div>
   );

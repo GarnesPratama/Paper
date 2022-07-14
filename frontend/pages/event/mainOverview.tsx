@@ -5,7 +5,7 @@ export default function mainEditProfile() {
   const [data, setData] = useState([]);
 
   return (
-    <div className="col-12 col-xl-9 dashboard">
+    <div className="col-12 col-xl-9 dashboard ">
       <div className="container">
         <div className="nav">
           <div className="d-flex justify-content-between align-items-center w-100 mb-3 mb-md-0">

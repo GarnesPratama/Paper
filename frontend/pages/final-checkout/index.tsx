@@ -54,6 +54,7 @@ export default function index() {
     data.append("singkatan", form1.singkatan);
     data.append("email", email.email);
     data.append("ketua", form1.ketua);
+    data.append("lokasi", form1.lokasi);
     data.append("asalbank", form3.asalbank);
     data.append("rekening", form3.rekening);
     data.append("bukti", form3.bukti);

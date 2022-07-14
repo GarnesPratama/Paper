@@ -69,6 +69,7 @@ export default function Form(props: id) {
             <Input
               type="text"
               placeholder="Masukkan nama Conference"
+              className="form-control"
               onChange={(e) => setnamaPaper(e.target.value)}
             />
           </div>
@@ -77,7 +78,6 @@ export default function Form(props: id) {
             <Input
               type="text"
               className="form-control"
-              id="exampleFormControlInput1"
               placeholder="SNIK"
               onChange={(e) => setsingkatan(e.target.value)}
             />
@@ -99,15 +99,15 @@ export default function Form(props: id) {
           <Input
             type="text"
             placeholder="Online Via Zoom"
+            className="form-control"
             onChange={(e) => setlokasi(e.target.value)}
           />
         </div>
         <div className="form-group">
           <label>Nama Ketua / Penanggungjawab</label>
-          <input
+          <Input
             type="text"
             className="form-control"
-            id="exampleFormControlInput1"
             placeholder="Online Via Zoom"
             onChange={(e) => setketua(e.target.value)}
           />

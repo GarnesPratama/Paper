@@ -31,13 +31,17 @@ export default function mainEditProfile() {
         <div className="nav">
           <div className="d-flex justify-content-between align-items-center w-100 mb-3 mb-md-0">
             <div className="d-flex justify-content-start align-items-center">
-              <button id="toggle-navbar">
+              <a
+                data-bs-toggle="offcanvas"
+                data-bs-target="#demo"
+                className="hamburger"
+              >
                 <img
                   src="/assets/img/global/burger.svg"
-                  className="mb-2"
+                  className="mb-2 me-3"
                   alt=""
                 />
-              </button>
+              </a>
               <h2 className="nav-title">Overview</h2>
             </div>
             <button className="btn-notif d-block d-md-none">

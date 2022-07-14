@@ -80,15 +80,6 @@ export default function menuEvent() {
                   />
                 </div>
                 <div className="d-flex flex-column align-items-start">
-                  <label className="form-label">Lokasi</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="password"
-                    placeholder="Type your password"
-                  />
-                </div>
-                <div className="d-flex flex-column align-items-start">
                   <label className="form-label">Tanggal Seminar</label>
                   <input
                     type="date"

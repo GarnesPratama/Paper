@@ -25,15 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/checkout-step-2": [
+    "/dashboard/[email]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/checkout-step-2.js"
+      "static/chunks/pages/dashboard/[email].js"
     ],
-    "/checkout-step-3": [
+    "/event/[singkatan]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/checkout-step-3.js"
+      "static/chunks/pages/event/[singkatan].js"
     ]
   },
   "ampFirstPages": []
