@@ -27,15 +27,21 @@ export default function index() {
     category: "",
     price: "",
   });
+  const [email, setemail] = useState({
+    email: "",
+  });
   const url = "http://localhost:4000/api/v1/event/post";
 
   useEffect(() => {
     const data1 = localStorage.getItem("checkout-form-1");
     const data3 = localStorage.getItem("checkout-form-3");
     const checkout = localStorage.getItem("paket");
+    const email = localStorage.getItem("email");
     const form_1 = JSON.parse(data1);
     const form_3 = JSON.parse(data3);
     const Checkout = JSON.parse(checkout);
+    const Email = JSON.parse(email);
+    setemail(Email);
     setform1(form_1);
     setform3(form_3);
     setcheckout(Checkout);
@@ -46,11 +52,9 @@ export default function index() {
     const data = new FormData();
     data.append("namaPaper", form1.namaPaper);
     data.append("singkatan", form1.singkatan);
-    // data.append("email", form1.email);
-    // data.append("waktu", form1.waktu);
-    // data.append("alamat", form1.alamat);
-    // data.append("lokasi", form1.lokasi);
+    data.append("email", email.email);
     data.append("ketua", form1.ketua);
+    data.append("lokasi", form1.lokasi);
     data.append("asalbank", form3.asalbank);
     data.append("rekening", form3.rekening);
     data.append("bukti", form3.bukti);
@@ -70,6 +74,7 @@ export default function index() {
       localStorage.removeItem("checkout-form-2");
       localStorage.removeItem("checkout-form-3");
       localStorage.removeItem("paket");
+      localStorage.removeItem("email");
     }
   };
 

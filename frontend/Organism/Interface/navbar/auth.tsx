@@ -10,7 +10,6 @@ interface navbar {
 }
 
 export default function auth(props: navbar) {
-  const { id, email } = props;
   const [isLogin, setisLogin] = useState(false);
   const [user, setuser] = useState({
     name: "",

@@ -2,7 +2,9 @@
 * {
   font-family: "Poppins", sans-serif;
 }
-
+.document-card {
+  border-bottom :  1px solid #0000
+}
 .main-btn, .btn-green, .btn-navy {
   padding: 13px 35px;
   border-radius: 45px;

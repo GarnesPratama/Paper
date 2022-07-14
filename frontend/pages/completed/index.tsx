@@ -267,7 +267,7 @@ export default function index() {
             </p>
           </div>
           <div className="button-group d-flex flex-column mx-auto">
-            <Link href={"/overview"}>
+            <Link href={`overview/${email}`}>
               <a
                 className="btn btn-dashboard fw-medium text-lg text-white rounded-pill mb-16"
                 href=""

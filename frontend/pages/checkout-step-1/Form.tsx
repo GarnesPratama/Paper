@@ -2,7 +2,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getMenuCheckout } from "../../services/pricing";
 import { toast } from "react-toastify";
-
+import Cookies from "js-cookie";
+import jwtDecode from "jwt-decode";
+import Input from "../../Organism/Form/Input";
 interface id {
   id: string;
 }
@@ -11,20 +13,26 @@ export default function Form(props: id) {
   const { id } = props;
   const [namaPaper, setnamaPaper] = useState("");
   const [singkatan, setsingkatan] = useState("");
-  const [email, setemail] = useState("");
-  const [waktu, setWaktu] = useState("");
-  const [alamat, setalamat] = useState("");
   const [lokasi, setlokasi] = useState("");
   const [ketua, setketua] = useState("");
   const [checkout, setcheckout] = useState({
     category: "",
     price: "",
   });
+  const [email, setemail] = useState({
+    email: "",
+  });
   const router = useRouter();
   const { query, isReady } = useRouter();
   const Checkout = useCallback(async (id) => {
     const data = await getMenuCheckout(id);
     setcheckout(data);
+  }, []);
+  const token = Cookies.get("token");
+  const jwtToken = atob(token);
+  const payload = jwtDecode(jwtToken);
+  useEffect(() => {
+    setemail(payload);
   }, []);
   useEffect(() => {
     if (isReady) {
@@ -40,25 +48,15 @@ export default function Form(props: id) {
     const data = {
       namaPaper,
       singkatan,
-      // email,
-      // waktu,
-      // alamat,
-      // lokasi,
+      lokasi,
       ketua,
     };
-    if (
-      !namaPaper ||
-      !singkatan ||
-      // !email ||
-      // !waktu ||
-      // !alamat ||
-      // !lokasi ||
-      !ketua
-    ) {
+    if (!namaPaper || !singkatan || !lokasi || !ketua) {
       toast.error("Lengkapi data dengan baik dan benar");
     } else {
       localStorage.setItem("checkout-form-1", JSON.stringify(data));
       localStorage.setItem("paket", JSON.stringify(checkout));
+      localStorage.setItem("email", JSON.stringify(email));
       router.push("/checkout-step-2");
     }
   };
@@ -68,73 +66,48 @@ export default function Form(props: id) {
         <div className="form-row">
           <div className="form-group col-md-6">
             <label>Conference Name</label>
-            <input
+            <Input
               type="text"
+              placeholder="Masukkan nama Conference"
               className="form-control"
-              id="exampleFormControlInput1"
-              placeholder="Seminar Nasional Ilmu Komputer"
               onChange={(e) => setnamaPaper(e.target.value)}
             />
           </div>
           <div className="form-group col-md-6">
             <label>Conference (Short Name)</label>
-            <input
+            <Input
               type="text"
               className="form-control"
-              id="exampleFormControlInput1"
               placeholder="SNIK"
               onChange={(e) => setsingkatan(e.target.value)}
             />
           </div>
         </div>
 
-        {/* <div className="form-group">
+        <div className="form-group">
           <label>Email</label>
-          <input
+          <Input
             type="email"
             className="form-control"
-            id="exampleFormControlInput1"
-            placeholder="snik@gmail.com"
-            onChange={(e) => setemail(e.target.value)}
+            placeholder={email.email}
+            disabled
           />
         </div>
 
-        <div className="form-group">
-          <label>Waktu Penyelenggaraan</label>
-          <input
-            type="date"
-            className="form-control"
-            id="exampleFormControlInput1"
-            onChange={(e) => setWaktu(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Alamat</label>
-          <input
-            type="text"
-            className="form-control"
-            id="exampleFormControlInput1"
-            placeholder="Jl.Kenangan No.59"
-            onChange={(e) => setalamat(e.target.value)}
-          />
-        </div>
         <div className="form-group">
           <label>Lokasi</label>
-          <input
+          <Input
             type="text"
-            className="form-control"
-            id="exampleFormControlInput1"
             placeholder="Online Via Zoom"
+            className="form-control"
             onChange={(e) => setlokasi(e.target.value)}
           />
-        </div> */}
+        </div>
         <div className="form-group">
           <label>Nama Ketua / Penanggungjawab</label>
-          <input
+          <Input
             type="text"
             className="form-control"
-            id="exampleFormControlInput1"
             placeholder="Online Via Zoom"
             onChange={(e) => setketua(e.target.value)}
           />

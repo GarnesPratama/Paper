@@ -22,4 +22,6 @@ export interface menuOverview {
   ketua: string;
   singkatan: string;
   price: number;
+  namaPaper: string;
+  category: string;
 }

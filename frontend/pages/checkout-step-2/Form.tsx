@@ -7,6 +7,7 @@ export default function Form() {
   const [asalbank, setasalbank] = useState("");
   const [rekening, setrekening] = useState("");
   const [pengirim, setpengirim] = useState("");
+
   const router = useRouter();
   const onNext = async (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ export default function Form() {
       router.push("/checkout-step-3");
     }
     //console.log("data ", data);
-  };;;
+  };
   return (
     <div>
       <form action="" className="form-checkout">

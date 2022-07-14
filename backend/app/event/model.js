@@ -31,6 +31,7 @@ const eventSchema = mongoose.Schema(
     category: {
       type: String,
     },
+<<<<<<< HEAD
     price: {
       type: String,
     },
@@ -47,6 +48,13 @@ const eventSchema = mongoose.Schema(
     //   },
     // ],
     // logo: {
+=======
+    // price: {
+    //   type: String,
+    // },
+
+    // tandaTangan: {
+>>>>>>> 4cded7e98e319811bf0b5ee82594c0ae4148ddaf
     //   type: String,
     // },
 
