@@ -89,8 +89,8 @@ module.exports = {
 
   conference: async (req, res, next) => {
     try {
-      const { singkatan } = req.params;
-      const data = await Event.findOne({ singkatan: singkatan });
+      const { shortName } = req.params;
+      const data = await Event.findOne({ shorName: shorName });
       res.status(200).json({
         message: "Find One Data Success",
         data: data,
