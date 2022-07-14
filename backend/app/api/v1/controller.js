@@ -4,7 +4,10 @@ const User = require("../../user/model");
 const Event = require("../../event/model");
 const Bank = require("../../bank/model");
 const OAuth = require("../../OAuth2/model");
-const Setting = require("../../setting/model");
+const Timeline = require("../../timeline/model");
+const Scope = require("../../scope/model");
+const Pricing = require("../../pricing/model");
+const Ioa = require("../../ioa-abstract/model");
 
 module.exports = {
   getAllProduct: async (req, res) => {
@@ -59,10 +62,25 @@ module.exports = {
 
   getAllEvent: async (req, res, next) => {
     try {
-      const result = await Event.find();
+      const event = await Event.find();
+      const timeline = await Timeline.find().select(
+        "deadlinePayment dateConference uploadPaper"
+      );
+      const scope = await Scope.find().select("name");
+      const pricing = await Pricing.find().select(
+        "publication type pricing coupon discount option"
+      );
+      const ioa = await Ioa.find().select("seminarTitle");
+      const bank = await Bank.find().select("nameUser nameBank acountNumber");
+
       res.status(200).json({
         message: "Get All Event Data Success",
-        data: result,
+        event,
+        timeline,
+        scope,
+        pricing,
+        bank,
+        ioa,
       });
     } catch (error) {
       next(error);
@@ -82,35 +100,12 @@ module.exports = {
     }
   },
 
-  getAllBank: async (req, res, next) => {
-    try {
-      const result = await Bank.find();
-      res.status(200).json({
-        message: "Get All Bank Data Success",
-        data: result,
-      });
-    } catch (error) {
-      next(error);
-    }
-  },
-
   getAllOAuth2: async (req, res, next) => {
     try {
       const result = await OAuth.find();
       res.status(200).json({
         message: "Get All Login Google Data Success",
         data: result,
-      });
-    } catch (error) {
-      next(error);
-    }
-  },
-  getAllSetting: async (req, res, next) => {
-    try {
-      const data = await Setting.find();
-      res.status(200).json({
-        message: "Success",
-        data: data,
       });
     } catch (error) {
       next(error);

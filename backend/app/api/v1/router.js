@@ -8,9 +8,9 @@ router.get("/auth", productGetController.getAllUser);
 router.get("/checkout/:id", productGetController.checkout);
 router.get("/dashboard/:email", productGetController.overview);
 router.get("/event", productGetController.getAllEvent);
-router.get("/bank", productGetController.getAllBank);
+
 router.get("/oauth", productGetController.getAllOAuth2);
-router.get("/setting", productGetController.getAllSetting);
+// router.get("/timeline", productGetController.getAllTimeline);
 router.get("/event/:namaPaper", productGetController.conference);
 
 module.exports = router;

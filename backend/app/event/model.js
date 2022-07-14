@@ -1,37 +1,31 @@
 const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Schema;
 const eventSchema = mongoose.Schema(
   {
-    alamat: {
+    secretariat: {
       type: String,
     },
-    email: {
+    webUrl: {
       type: String,
     },
-    ketua: {
+    logo: {
       type: String,
     },
-    lokasi: {
+    period: {
       type: String,
     },
-    namaPaper: {
+    status: {
+      type: String,
+      enum: ["Active", "Non-Active"],
+      default: "Non-Active",
+    },
+    fullName: {
       type: String,
     },
-    singkatan: {
+    shortName: {
       type: String,
     },
-    waktu: {
-      type: Date,
-    },
-    asalbank: {
-      type: String,
-    },
-    bukti: {
-      type: String,
-    },
-    pengirim: {
-      type: String,
-    },
-    rekening: {
+    place: {
       type: String,
     },
     category: {
@@ -40,6 +34,18 @@ const eventSchema = mongoose.Schema(
     price: {
       type: String,
     },
+    // timelinePaper: [
+    //   {
+    //     type: ObjectId,
+    //     ref: "timeline",
+    //   },
+    // ],
+    // scopePaper: [
+    //   {
+    //     type: ObjectId,
+    //     ref: "scope",
+    //   },
+    // ],
     // logo: {
     //   type: String,
     // },

@@ -2,9 +2,9 @@ const Bank = require("./model");
 module.exports = {
   createBank: async (req, res, next) => {
     try {
-      const { noRek, nameUser, nameBank } = req.body;
+      const { acountNumber, nameUser, nameBank } = req.body;
       const data = new Bank({
-        noRek,
+        acountNumber,
         nameUser,
         nameBank,
       });
@@ -21,10 +21,10 @@ module.exports = {
   updateBank: async (req, res, next) => {
     try {
       const { id } = req.params;
-      const { noRek, nameUser, nameBank } = req.body;
+      const { acountNumber, nameUser, nameBank } = req.body;
       const data = await Bank.findByIdAndUpdate(
         { _id: id },
-        { noRek, nameBank, nameUser }
+        { acountNumber, nameBank, nameUser }
       );
       res.status(200).json({
         message: "Update Data Success",

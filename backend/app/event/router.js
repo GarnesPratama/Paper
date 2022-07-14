@@ -15,15 +15,15 @@ const upload = require("../middlewares/multer");
 
 // router.post("/post", settingController.createSetting);
 router.post(
-  "/post/:namaPaper",
-  upload.single("bukti"),
+  "/post/:shortName",
+  upload.single("logo"),
   eventController.createEvent
 );
 // router.post("/post/:namaPaper", uploadMultiple, eventController.createEvent);
-router.put("/:namaPaper", upload.single("bukti"), eventController.updateEvent);
+router.put("/:shortName", upload.single("logo"), eventController.updateEvent);
 router.delete(
-  "/:namaPaper",
-  upload.single("bukti"),
+  "/:shortName",
+  upload.single("logo"),
   eventController.deleteEvent
 );
 

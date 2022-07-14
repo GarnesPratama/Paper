@@ -4,39 +4,21 @@ const { StatusCodes } = require("http-status-codes");
 module.exports = {
   createEvent: async (req, res, next) => {
     try {
-      const { namaPaper } = req.params;
-      const {
-        alamat,
-        email,
-        ketua,
-        lokasi,
-        singkatan,
-        waktu,
-        // namaPaper,
-        asalbank,
-        pengirim,
-        rekening,
-        category,
-        price,
-      } = req.body;
+      const { shortName } = req.params;
+      const { secretriat, webUrl, period, status, fullName, category, price } =
+        req.body;
       const data = new Event({
-        alamat,
-        email,
-        ketua,
-        lokasi,
-        namaPaper,
-        singkatan,
-        waktu,
-        asalbank,
-        // buktiPembayaran: req.files,
-        // logo: req.files,
-        // tandaTangan: req.files,
-        // image: req.files,
-        pengirim,
-        rekening,
+        secretriat,
+        webUrl,
+        period,
+        status,
+        fullName,
+        shortName,
         category,
         price,
-        bukti: req.file.filename,
+        category,
+        price,
+        logo: req.file.filename,
         // tandaTangan: req.files,
         // buktiPembayaran: req.files,
         // logo: req.files["logo"].filename,
@@ -56,31 +38,19 @@ module.exports = {
 
   updateEvent: async (req, res, next) => {
     try {
-      const { namaPaper } = req.params;
-      const {
-        alamat,
-        email,
-        ketua,
-        lokasi,
-        singkatan,
-        waktu,
-        asalbank,
-        pengirim,
-        rekening,
-      } = req.body;
+      const { shortName } = req.params;
+      const { secretriat, webUrl, period, status, fullName, category, price } =
+        req.body;
       const data = await Event.findOneAndUpdate(
-        { namaPaper: namaPaper },
+        { shortName: shortName },
         {
-          alamat,
-          email,
-          ketua,
-          lokasi,
-          namaPaper,
-          singkatan,
-          waktu,
-          asalbank,
-          pengirim,
-          rekening,
+          secretriat,
+          webUrl,
+          period,
+          status,
+          fullName,
+          category,
+          price,
         }
       );
       res.status(200).json({
@@ -94,8 +64,8 @@ module.exports = {
 
   deleteEvent: async (req, res, next) => {
     try {
-      const { namaPaper } = req.params;
-      const data = await Event.findOneAndRemove({ namaPaper: namaPaper });
+      const { shortName } = req.params;
+      const data = await Event.findOneAndRemove({ shortName: shortName });
       await data.remove();
       res.status(200).json({
         message: "Delete Success",

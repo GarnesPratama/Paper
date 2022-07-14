@@ -19,7 +19,10 @@ const apiRouter = require("./app/api/v1/router");
 const eventRouter = require("./app/event/router");
 const bankRouter = require("./app/bank/router");
 const oAuthRouter = require("./app/OAuth2/router");
-const settingRouter = require("./app/setting/router");
+const timelineRouter = require("./app/timeline/router");
+const scopeRouter = require("./app/scope/router");
+const pricingRouter = require("./app/pricing/router");
+const ioaRouter = require("./app/ioa-abstract/router");
 
 // middleware
 
@@ -63,7 +66,10 @@ app.use(`${apiVersion1}`, apiRouter);
 app.use(`${apiVersion1}/event`, eventRouter);
 app.use(`${apiVersion1}/bank`, bankRouter);
 app.use(`${apiVersion1}/oauth`, oAuthRouter);
-app.use(`${apiVersion1}/setting`, settingRouter);
+app.use(`${apiVersion1}/timeline`, timelineRouter);
+app.use(`${apiVersion1}/scope`, scopeRouter);
+app.use(`${apiVersion1}/pricing`, pricingRouter);
+app.use(`${apiVersion1}/ioa`, ioaRouter);
 
 app.use(notFound);
 app.use(notFound);
