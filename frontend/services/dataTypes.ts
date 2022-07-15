@@ -19,8 +19,8 @@ export interface menuCheckout {
 }
 
 export interface menuOverview {
-  ketua: string;
-  singkatan: string;
+  leader: string;
+  shortName: string;
   price: number;
   namaPaper: string;
   category: string;

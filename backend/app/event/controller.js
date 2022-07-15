@@ -4,9 +4,21 @@ const { StatusCodes } = require("http-status-codes");
 module.exports = {
   createEvent: async (req, res, next) => {
     try {
-      const { shortName } = req.params;
-      const { secretriat, webUrl, period, status, fullName, category, price } =
-        req.body;
+      const {
+        secretriat,
+        webUrl,
+        period,
+        status,
+        fullName,
+        category,
+        price,
+        nameBank,
+        rekening,
+        pengirim,
+        shortName,
+        email,
+        leader,
+      } = req.body;
       const data = new Event({
         secretriat,
         webUrl,
@@ -18,7 +30,11 @@ module.exports = {
         price,
         category,
         price,
-        logo: req.file.filename,
+        nameBank,
+        rekening,
+        pengirim,
+        email,
+        leader,
         // tandaTangan: req.files,
         // buktiPembayaran: req.files,
         // logo: req.files["logo"].filename,

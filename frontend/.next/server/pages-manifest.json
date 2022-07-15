@@ -1,7 +1,6 @@
 {
-  "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
   "/_app": "pages/_app.js",
-  "/event/[singkatan]": "pages/event/[singkatan].js",
-  "/dashboard/[email]": "pages/dashboard/[email].js"
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/event/[shortName]": "pages/event/[shortName].js"
 }

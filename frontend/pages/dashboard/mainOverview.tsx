@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { menuOverview } from "../../services/dataTypes";
 import { getMenuOverview } from "../../services/overview";
-import NumberFormat from "react-number-format";
 import { useRouter } from "next/router";
-import Cookies from "js-cookie";
 import { useCallback } from "react";
-import jwtDecode from "jwt-decode";
 import Link from "next/link";
 
 export default function mainEditProfile() {
@@ -70,13 +67,13 @@ export default function mainEditProfile() {
                       <th scope="row">
                         <div className="game-title-header document-item">
                           <p className="game-title fw-medium text-start color-palette-1 m-0">
-                            {item.singkatan}
+                            {item.shortName}
                           </p>
                         </div>
                       </th>
                       <td>
                         <p className="fw-medium color-palette-1 m-0">
-                          {item.ketua}
+                          {item.leader}
                         </p>
                       </td>
                       <td>
@@ -93,7 +90,7 @@ export default function mainEditProfile() {
                         </div>
                       </td>
                       <td>
-                        <Link href={`/event/${item.singkatan}`}>
+                        <Link href={`/event/${item.shortName}`}>
                           <a href="">
                             <button className="bg btn btn-success">
                               <i className="bi bi-pencil"></i>

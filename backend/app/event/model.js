@@ -32,7 +32,28 @@ const eventSchema = mongoose.Schema(
       type: String,
     },
     price: {
+      type: Number,
+    },
+    email: {
       type: String,
+    },
+    leader: {
+      type: String,
+    },
+    location: {
+      type: String,
+    },
+    nameBank: {
+      type: String,
+      default: "Menyusul",
+    },
+    rekening: {
+      type: String,
+      default: "Menyusul",
+    },
+    pengirim: {
+      type: String,
+      default: "Menyusul",
     },
     // timelinePaper: [
     //   {

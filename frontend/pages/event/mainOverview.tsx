@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Form from "./form";
 
 export default function mainEditProfile() {
-  const [data, setData] = useState([]);
-
   return (
     <div className="col-12 col-xl-9 dashboard ">
       <div className="container">

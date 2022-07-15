@@ -1,13 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 html,
 
-.dashboard {
-  font-family: "Poppins";
-  font-style: normal;
-  background-color: #F8F8FA;
-  overflow-x: hidden;
-  position: relative;
-} 
+
 .nav-input,
 .nav-input-group .btn-nav-input,
 .nav .btn-notif,

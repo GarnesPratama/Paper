@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import NumberFormat from "react-number-format";
 import axios from "axios";
-import { toast } from "react-toastify";
+
 
 export default function index() {
   const router = useRouter();

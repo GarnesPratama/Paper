@@ -30,10 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/dashboard/[email].js"
     ],
-    "/event/[singkatan]": [
+    "/event/[shortName]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/event/[singkatan].js"
+      "static/chunks/pages/event/[shortName].js"
     ]
   },
   "ampFirstPages": []

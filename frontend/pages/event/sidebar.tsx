@@ -5,21 +5,20 @@ import { useRouter } from "next/router";
 import { getMenuEvent } from "../../services/event";
 
 export default function sidebar() {
-  const router = useRouter();
-  const [Event, setEvent] = useState({
-    singkatan: "",
+  const [event, setevent] = useState({
+    shortName: "",
     namaPaper: "",
   });
-  const data = useCallback(async (singkatan) => {
-    const resp = await getMenuEvent(singkatan);
-    setEvent(resp);
-    // console.log("data:", resp);
+  const data = useCallback(async (shortName) => {
+    const resp = await getMenuEvent(shortName);
+    setevent(resp);
+    console.log("dataaa:", resp);
   }, []);
   const { query, isReady } = useRouter();
   useEffect(() => {
     if (isReady) {
       //console.log("router tersedia", query.namaPaper);
-      data(query.singkatan);
+      data(query.shortName);
     } else {
       //console.log("router tidak tersedia");
     }
@@ -30,7 +29,7 @@ export default function sidebar() {
       <aside className="sidebar">
         <div className="user text-center pb-20 pe-30">
           <h2 className="fw-bold text-xl color-palette-1 ml-3">
-            {Event.singkatan} Dashboard
+            {event.shortName} Dashboard
           </h2>
         </div>
 

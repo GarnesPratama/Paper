@@ -62,7 +62,8 @@ module.exports = {
 
   getAllEvent: async (req, res, next) => {
     try {
-      const event = await Event.find();
+      const { shortName } = req.params;
+      const event = await Event.findOne({ shortName: shortName });
       const timeline = await Timeline.find().select(
         "deadlinePayment dateConference uploadPaper"
       );

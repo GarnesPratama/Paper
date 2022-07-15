@@ -14,50 +14,64 @@ interface User {
 export default function form() {
   const router = useRouter();
   const [event, setEvent] = useState({
-    alamat: "",
     email: "",
-    ketua: "",
-    lokasi: "",
-    namaPaper: "",
-    singkatan: "",
-    asalbank: "",
-    bukti: "",
-    pengirim: "",
+    leader: "",
+    location: "",
+    fullName: "",
+    shortName: "",
+    nameBank: "",
     rekening: "",
+    pengirim: "",
     category: "",
     price: "",
   });
-  const getEvent = async (singkatan) => {
-    const resp = await getMenuEvent(singkatan);
+  const getEvent = async (shortName) => {
+    const resp = await getMenuEvent(shortName);
     console.log("data :", resp);
     setEvent(resp);
   };
   const { query, isReady } = useRouter();
   useEffect(() => {
     if (isReady) {
-      console.log("router tersedia", query.singkatan);
-      getEvent(query.singkatan);
+      console.log("router tersedia", query.shortName);
+      getEvent(query.shortName);
     } else {
       console.log("router tidak tersedia");
     }
   }, [isReady]);
   const submit = async () => {
-    const url = `http://localhost:4000/api/v1/event/${event.singkatan}`;
-    const data = await new FormData();
-    data.append("namaPaper", event.namaPaper);
-    data.append("alamat", event.alamat);
-    data.append("lokasi", event.lokasi);
-    data.append("ketua", event.ketua);
+    const url = `http://localhost:4000/api/v1/event/${event.shortName}`;
+    const qs = require("qs");
+    const data = qs.stringify({
+      fullName: event.fullName,
+      shortName: event.shortName,
+      email: event.email,
+      leader: event.leader,
+      location: event.location,
+      nameBank: event.nameBank,
+      rekening: event.rekening,
+      pengirim: event.pengirim,
+      category: event.category,
+      price: event.price,
+    });
     const resp = await Axios.put(url, data);
     console.log("resp", resp);
   };
   const onSave = async () => {
-    const url = `http://localhost:4000/api/v1/event/${event.singkatan}`;
-    const data = await new FormData();
-    data.append("namaPaper", event.namaPaper);
-    data.append("alamat", event.alamat);
-    data.append("lokasi", event.lokasi);
-    data.append("ketua", event.ketua);
+    const url = `http://localhost:4000/api/v1/event/${event.shortName}`;
+    const qs = require("qs");
+    const data = qs.stringify({
+      fullName: event.fullName,
+      shortName: event.shortName,
+      email: event.email,
+      leader: event.leader,
+      location: event.location,
+      nameBank: event.nameBank,
+      rekening: event.rekening,
+      pengirim: event.pengirim,
+      category: event.category,
+      price: event.price,
+    });
     const resp = await Axios.put(url, data);
 
     console.log("resp", resp);
@@ -74,11 +88,9 @@ export default function form() {
               disabled
               className="form-control"
               id="exampleFormControlInput1"
-              value={event.namaPaper}
+              value={event.fullName}
               placeholder="Seminar Nasional Ilmu Komputer"
-              onChange={(e) =>
-                setEvent({ ...event, namaPaper: e.target.value })
-              }
+              onChange={(e) => setEvent({ ...event, fullName: e.target.value })}
             />
           </div>
         </div>
@@ -90,8 +102,8 @@ export default function form() {
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="Online Via Zoom"
-            value={event.lokasi}
-            onChange={(e) => setEvent({ ...event, lokasi: e.target.value })}
+            value={event.location}
+            onChange={(e) => setEvent({ ...event, location: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -101,8 +113,8 @@ export default function form() {
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="Online Via Zoom"
-            value={event.ketua}
-            onChange={(e) => setEvent({ ...event, ketua: e.target.value })}
+            value={event.leader}
+            onChange={(e) => setEvent({ ...event, leader: e.target.value })}
           />
         </div>
 

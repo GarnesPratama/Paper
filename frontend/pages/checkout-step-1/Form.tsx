@@ -11,10 +11,10 @@ interface id {
 
 export default function Form(props: id) {
   const { id } = props;
-  const [namaPaper, setnamaPaper] = useState("");
-  const [singkatan, setsingkatan] = useState("");
-  const [lokasi, setlokasi] = useState("");
-  const [ketua, setketua] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [shortName, setShortName] = useState("");
+  const [location, setLocation] = useState("");
+  const [leader, setLeader] = useState("");
   const [checkout, setcheckout] = useState({
     category: "",
     price: "",
@@ -46,12 +46,12 @@ export default function Form(props: id) {
     e.preventDefault();
     console.log("email", email);
     const data = {
-      namaPaper,
-      singkatan,
-      lokasi,
-      ketua,
+      fullName,
+      shortName,
+      location,
+      leader,
     };
-    if (!namaPaper || !singkatan || !lokasi || !ketua) {
+    if (!fullName || !shortName || !location || !leader) {
       toast.error("Lengkapi data dengan baik dan benar");
     } else {
       localStorage.setItem("checkout-form-1", JSON.stringify(data));
@@ -70,7 +70,7 @@ export default function Form(props: id) {
               type="text"
               placeholder="Masukkan nama Conference"
               className="form-control"
-              onChange={(e) => setnamaPaper(e.target.value)}
+              onChange={(e) => setFullName(e.target.value)}
             />
           </div>
           <div className="form-group col-md-6">
@@ -79,7 +79,7 @@ export default function Form(props: id) {
               type="text"
               className="form-control"
               placeholder="SNIK"
-              onChange={(e) => setsingkatan(e.target.value)}
+              onChange={(e) => setShortName(e.target.value)}
             />
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function Form(props: id) {
             type="text"
             placeholder="Online Via Zoom"
             className="form-control"
-            onChange={(e) => setlokasi(e.target.value)}
+            onChange={(e) => setLocation(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -109,7 +109,7 @@ export default function Form(props: id) {
             type="text"
             className="form-control"
             placeholder="Online Via Zoom"
-            onChange={(e) => setketua(e.target.value)}
+            onChange={(e) => setLeader(e.target.value)}
           />
         </div>
         <div className="form-group">
