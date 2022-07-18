@@ -85,7 +85,7 @@ export default function mainEditProfile() {
                         <div>
                           <span className="float-start icon-status success"></span>
                           <p className="fw-medium text-start color-palette-1 m-0 position-relative">
-                            Berhasil
+                            {item.status}
                           </p>
                         </div>
                       </td>

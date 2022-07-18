@@ -5,9 +5,10 @@ interface Input {
   onChange?(e): void;
   className?: string;
   disabled?: boolean;
+  value?: string;
 }
 export default function Input(props: Input) {
-  const { disabled, className, type, placeholder, onChange } = props;
+  const { disabled, className, type, placeholder, onChange, value } = props;
   return (
     <div>
       <input
@@ -16,6 +17,7 @@ export default function Input(props: Input) {
         className={className}
         onChange={onChange}
         disabled={disabled}
+        value={value}
       />
     </div>
   );

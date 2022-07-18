@@ -4,6 +4,7 @@ import { getMenuCheckout } from "../../services/pricing";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
+import { Autosave, useAutosave } from "react-autosave";
 import Input from "../../Organism/Form/Input";
 interface id {
   id: string;
@@ -22,6 +23,12 @@ export default function Form(props: id) {
   const [email, setemail] = useState({
     email: "",
   });
+  const [data, setdata] = useState({
+    fullName: "",
+    shortName: "",
+    location: "",
+    leader: "",
+  });
   const router = useRouter();
   const { query, isReady } = useRouter();
   const Checkout = useCallback(async (id) => {
@@ -33,6 +40,9 @@ export default function Form(props: id) {
   const payload = jwtDecode(jwtToken);
   useEffect(() => {
     setemail(payload);
+    const form1 = localStorage.getItem("checkout-form-1");
+    const data1 = JSON.parse(form1);
+    setdata(data1);
   }, []);
   useEffect(() => {
     if (isReady) {
@@ -41,10 +51,8 @@ export default function Form(props: id) {
     } else {
       //console.log("router tidak tersedia");
     }
-  });
+  }, [isReady]);
   const onNext = async (e) => {
-    e.preventDefault();
-    console.log("email", email);
     const data = {
       fullName,
       shortName,
@@ -52,7 +60,8 @@ export default function Form(props: id) {
       leader,
     };
     if (!fullName || !shortName || !location || !leader) {
-      toast.error("Lengkapi data dengan baik dan benar");
+      // toast.error("Lengkapi data dengan baik dan benar");
+      router.push("/checkout-step-2");
     } else {
       localStorage.setItem("checkout-form-1", JSON.stringify(data));
       localStorage.setItem("paket", JSON.stringify(checkout));
@@ -60,6 +69,7 @@ export default function Form(props: id) {
       router.push("/checkout-step-2");
     }
   };
+
   return (
     <div>
       <form action="" className="form-checkout">
@@ -68,8 +78,9 @@ export default function Form(props: id) {
             <label>Conference Name</label>
             <Input
               type="text"
-              placeholder="Masukkan nama Conference"
+              placeholder="Seminar Nasional Ilmu Komputer"
               className="form-control"
+              // value={data.fullName}
               onChange={(e) => setFullName(e.target.value)}
             />
           </div>

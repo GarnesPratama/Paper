@@ -18,6 +18,7 @@ module.exports = {
         shortName,
         email,
         leader,
+        location,
       } = req.body;
       const data = new Event({
         secretriat,
@@ -35,6 +36,7 @@ module.exports = {
         pengirim,
         email,
         leader,
+        location,
         // tandaTangan: req.files,
         // buktiPembayaran: req.files,
         // logo: req.files["logo"].filename,
@@ -55,8 +57,16 @@ module.exports = {
   updateEvent: async (req, res, next) => {
     try {
       const { shortName } = req.params;
-      const { secretriat, webUrl, period, status, fullName, category, price } =
-        req.body;
+      const {
+        secretriat,
+        webUrl,
+        period,
+        status,
+        fullName,
+        category,
+        price,
+        leader,
+      } = req.body;
       const data = await Event.findOneAndUpdate(
         { shortName: shortName },
         {
@@ -67,6 +77,7 @@ module.exports = {
           fullName,
           category,
           price,
+          leader,
         }
       );
       res.status(200).json({

@@ -28,7 +28,7 @@ export default function form() {
   const getEvent = async (shortName) => {
     const resp = await getMenuEvent(shortName);
     console.log("data :", resp);
-    setEvent(resp);
+    setEvent(resp.event);
   };
   const { query, isReady } = useRouter();
   useEffect(() => {

@@ -7,12 +7,11 @@ import { getMenuEvent } from "../../services/event";
 export default function sidebar() {
   const [event, setevent] = useState({
     shortName: "",
-    namaPaper: "",
   });
   const data = useCallback(async (shortName) => {
     const resp = await getMenuEvent(shortName);
-    setevent(resp);
-    console.log("dataaa:", resp);
+    setevent(resp.event);
+    //console.log("dataaa:", resp);
   }, []);
   const { query, isReady } = useRouter();
   useEffect(() => {

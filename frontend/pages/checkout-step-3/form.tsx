@@ -29,8 +29,9 @@ export default function form() {
     email: "",
   });
   const url = "http://localhost:4000/api/v1/event/post";
+  const urlEmail = "localhost:4000/api/v1/email/post";
 
-  useEffect(() => {
+  http: useEffect(() => {
     const data1 = localStorage.getItem("checkout-form-1");
     const data2 = localStorage.getItem("checkout-form-2");
     const data3 = localStorage.getItem("paket");
@@ -59,19 +60,27 @@ export default function form() {
       shortName: form1.shortName,
       email: form4.email,
       leader: form1.leader,
-      loocation: form1.location,
+      location: form1.location,
       nameBank: form2.nameBank,
       rekening: form2.rekening,
       pengirim: form2.pengirim,
       category: form3.category,
       price: price,
     });
+    const Email = qs.stringify({
+      from: "Conference <garnesrizky@gmail.com>",
+      email: form4.email,
+      subject: "Payment",
+      message: data,
+    });
 
     if (!data) {
       toast.error("Lengkapi data");
     } else {
       const resp = await axios.post(url, data);
+      const email = await axios.post(urlEmail, Email);
       console.log("data", resp);
+      console.log("email", email);
       //router.push("/completed");
       localStorage.removeItem("checkout-form-1");
       localStorage.removeItem("checkout-form-2");

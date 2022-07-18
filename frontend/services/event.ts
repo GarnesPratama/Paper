@@ -5,5 +5,5 @@ export const getMenuEvent = async (shortName) => {
     `http://localhost:4000/api/v1/event/${shortName}`
   );
   const axiosResponse = await response.data;
-  return axiosResponse.data;
+  return axiosResponse;
 };

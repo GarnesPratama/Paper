@@ -55,6 +55,9 @@ const eventSchema = mongoose.Schema(
       type: String,
       default: "Menyusul",
     },
+    location: {
+      type: String,
+    },
     // timelinePaper: [
     //   {
     //     type: ObjectId,

@@ -23,6 +23,7 @@ const timelineRouter = require("./app/timeline/router");
 const scopeRouter = require("./app/scope/router");
 const pricingRouter = require("./app/pricing/router");
 const ioaRouter = require("./app/ioa-abstract/router");
+const emailRouter = require("./app/email/router");
 
 // middleware
 
@@ -70,6 +71,7 @@ app.use(`${apiVersion1}/timeline`, timelineRouter);
 app.use(`${apiVersion1}/scope`, scopeRouter);
 app.use(`${apiVersion1}/pricing`, pricingRouter);
 app.use(`${apiVersion1}/ioa`, ioaRouter);
+app.use(`${apiVersion1}/email`, emailRouter);
 
 app.use(notFound);
 app.use(notFound);

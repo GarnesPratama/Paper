@@ -24,4 +24,5 @@ export interface menuOverview {
   price: number;
   namaPaper: string;
   category: string;
+  status: string;
 }
